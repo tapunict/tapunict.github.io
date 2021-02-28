@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Technologies for advanced programming - 2021 &#8212; Techologies for Advanced Programming</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Docker Introduction" href="Docker.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Technologies for advanced programming - 2021
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker.html">
+   Docker Introduction
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/TAPIntroduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/TAPIntroduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Technologies for advanced programming - 2021
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syllabus">
+   Syllabus
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#course-detail">
+     Course detail
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-we-are-going-to-deal-with">
+   What we are going to deal with ?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#technologies-for-realtime-data-collection-and-analytics-systens">
+     Technologies for realtime data collection and analytics systens
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-prototypes-of-end-to-end-solutions">
+     Running Prototypes of End to End Solutions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#class-2020">
+       Class 2020
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pass-the-baton">
+       Pass the baton
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meme">
+     Meme
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics">
+   Topics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#big-data">
+     Big Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#big-data-is-better-data">
+       Big data is better data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digital-marketing">
+     Digital Marketing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#most-valuable-companies-brands-by-market-capitalization-2000-2021">
+       15 Most Valuable Companies Brands by Market Capitalization (2000 - 2021)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#social-impact-of-big-data">
+     Social Impact of Big Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-era-of-blind-faith-in-big-data-must-end">
+       The era of blind faith in big data must end
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literate-programming">
+     Literate Programming
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stream-processing">
+     Stream Processing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-learning">
+     Machine Learning
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloud-computing">
+     Cloud Computing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workflow-scheduling">
+     Workflow Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#technologies">
+   Technologies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers">
+     Containers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#workload-management">
+     Workload management
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ingestion">
+     Data Ingestion
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-streaming">
+     Data Streaming
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-indexing">
+     Data Indexing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-visualization">
+     Data Visualization
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebooks">
+     Notebooks
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Workflow Scheduling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications">
+   Applications
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-science-business-intelligence">
+     Data Science &amp;&amp; Business Intelligence
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-mining">
+     Text Mining
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-ideas-welcome">
+     New Ideas Welcome
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="technologies-for-advanced-programming-2021">
+<h1>Technologies for advanced programming - 2021<a class="headerlink" href="#technologies-for-advanced-programming-2021" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://about.me/snicotra">Salvo Nicotra</a></p>
+</div>
+<div class="section" id="syllabus">
+<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h1>
+<p>General knowledge of technologies useful to build end-to-end solutions to analyse, manage, store, process and present data acquired in real time.</p>
+<p>Using simplified and cross infrastructure software deployment systems (containers) and microservices orchestration tool (kubernetes), the course will present “on-the-edge” technologies used for data ingestion, pipelines, big data processing and visualization</p>
+<p>Using an agile and multidisciplinary approach: topics, technologies and enviroments discussed will be applied to real case examples</p>
+<div class="section" id="course-detail">
+<h2>Course detail<a class="headerlink" href="#course-detail" title="Permalink to this headline">¶</a></h2>
+<p>Lesson Mon/Wed 15-18</p>
+<p>Contacts</p>
+<p>Office hours: Wed 18-19</p>
+<p>Email: salvatore.nicotra1&#64;unict.it</p>
+<p>Telegram: (https://t.me/joinchat/DPCishPgqXBxeWUbrUKyCg)[&#64;tap]</p>
+<p>GitHub Organization: <a class="reference external" href="https://forms.office.com/Pages/ResponsePage.aspx?id=yPvuuos8gkORJuhr_vRs5qQaVGZstaNBnWCwE6CkQAFUQjBDME9USVhZSUY5SUJCQlJRNlpTWkNMVS4u">Form</a></p>
+</div>
+</div>
+<div class="section" id="what-we-are-going-to-deal-with">
+<h1>What we are going to deal with ?<a class="headerlink" href="#what-we-are-going-to-deal-with" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="technologies-for-realtime-data-collection-and-analytics-systens">
+<h2>Technologies for realtime data collection and analytics systens<a class="headerlink" href="#technologies-for-realtime-data-collection-and-analytics-systens" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/mediaset-enabler.png" /></p>
+</div>
+<div class="section" id="running-prototypes-of-end-to-end-solutions">
+<h2>Running Prototypes of End to End Solutions<a class="headerlink" href="#running-prototypes-of-end-to-end-solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="class-2020">
+<h3>Class 2020<a class="headerlink" href="#class-2020" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Student</p></th>
+<th class="head"><p>Github</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Salvo	Asero</p></td>
+<td><p>https://github.com/Guberlo/Reddit-Analyzer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simone	Scionti + Sergio	Maccarone</p></td>
+<td><p>https://github.com/StudiumAnalytics/Project</p></td>
+</tr>
+<tr class="row-even"><td><p>Giorgio Lo Cicero + Davide	Carnemolla</p></td>
+<td><p>https://github.com/josura/AISuggestU</p></td>
+</tr>
+<tr class="row-odd"><td><p>Marco	Cavalli</p></td>
+<td><p>https://github.com/Mirkesx/reputation_system</p></td>
+</tr>
+<tr class="row-even"><td><p>Paolo	Giua</p></td>
+<td><p>https://github.com/paologiua/WeatherForecastAnalysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alessandro	Catalano</p></td>
+<td><p>https://github.com/Wornairz/TapEth</p></td>
+</tr>
+<tr class="row-even"><td><p>Danilo Santitto</p></td>
+<td><p>https://github.com/Warcreed/Twitch-Chat-Analyzer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simone Torrisi</p></td>
+<td><p>https://github.com/Quezal17/StackOverflow_Analyzer</p></td>
+</tr>
+<tr class="row-even"><td><p>Salvatore Leonardi</p></td>
+<td><p>n.a. (spotify)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aldo Fiorito + Francesco Petrosino</p></td>
+<td><p>https://github.com/FrancescoPetrosino/SpeechAnalyzer</p></td>
+</tr>
+<tr class="row-even"><td><p>Biagio Incardona</p></td>
+<td><p>https://github.com/biagio-incardona/Twitch-Youtube-Chat-Analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pierpaolo Pecoraio</p></td>
+<td><p>https://github.com/Pierpaolo791/TAP-PositiveChat-Project</p></td>
+</tr>
+<tr class="row-even"><td><p>Matteo Di Mauro</p></td>
+<td><p>https://github.com/matteodimauro/Telegram_Chat_Bot</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alessandrdo Sorbello</p></td>
+<td><p>https://github.com/FoxAlex98/Metacritic_review_analyzer</p></td>
+</tr>
+<tr class="row-even"><td><p>Fabio La Manna</p></td>
+<td><p>https://github.com/fambelic/tap_repo</p></td>
+</tr>
+<tr class="row-odd"><td><p>Andrea Aiello</p></td>
+<td><p>https://github.com/Alemsun/pokemon_tap</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pass-the-baton">
+<h3>Pass the baton<a class="headerlink" href="#pass-the-baton" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="https://www.leadershipmanagementmagazine.com/wp-content/uploads/Passaggio-generazionale-960x520.jpg" /></p>
+</div>
+</div>
+<div class="section" id="meme">
+<h2>Meme<a class="headerlink" href="#meme" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/among-us.jpeg" /></p>
+<p><img alt="" src="https://i1.wp.com/whatsnew2day.com/wp-content/uploads/2021/01/1610138986_59_Hilarious-memes-and-tweets-show-how-dissatisfied-people-already-are.jpg?resize=634%2C617&amp;ssl=1" /></p>
+<p><img alt="" src="https://i.imgflip.com/4zth70.jpg" /></p>
+</div>
+</div>
+<div class="section" id="topics">
+<h1>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="big-data">
+<h2>Big Data<a class="headerlink" href="#big-data" title="Permalink to this headline">¶</a></h2>
+<p>Datasets whose size is beyond the ability of typical database software tools to capture, store, manage, and analyze</p>
+<p><a class="reference external" href="https://www.mckinsey.com/business-functions/mckinsey-digital/our-insights/big-data-the-next-frontier-for-innovation">McKinsey</a></p>
+<p><img alt="" src="_images/Big_Data.png" /></p>
+<div class="section" id="big-data-is-better-data">
+<h3>Big data is better data<a class="headerlink" href="#big-data-is-better-data" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=8pHzROP1D-w&amp;start=113">▶<img alt="" src="http://img.youtube.com/vi/8pHzROP1D-w/0.jpg" /></a></p>
+</div>
+</div>
+<div class="section" id="digital-marketing">
+<h2>Digital Marketing<a class="headerlink" href="#digital-marketing" title="Permalink to this headline">¶</a></h2>
+<p>Digital marketing is a form of direct marketing which links consumers with sellers electronically using interactive technologies like emails, websites, online forums and newsgroups, interactive television, mobile communications etcetera (Kotler and Armstrong, 2009)</p>
+<p><img alt="" src="_images/digital-marketing.jpg" /></p>
+<div class="section" id="most-valuable-companies-brands-by-market-capitalization-2000-2021">
+<h3>15 Most Valuable Companies Brands by Market Capitalization (2000 - 2021)<a class="headerlink" href="#most-valuable-companies-brands-by-market-capitalization-2000-2021" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=rElAv7SJLw8">▶<img alt="" src="http://img.youtube.com/vi/rElAv7SJLw8/0.jpg" /></a></p>
+</div>
+</div>
+<div class="section" id="social-impact-of-big-data">
+<h2>Social Impact of Big Data<a class="headerlink" href="#social-impact-of-big-data" title="Permalink to this headline">¶</a></h2>
+<p>big data applications such as lifestyle, disaster relief, energy and sustainability, critical infrastructure, and so forth that indicate promise for making a societal impact through the use of analytics.
+<a class="reference external" href="https://link.springer.com/article/10.1007/s10796-018-9846-7">Big Data &amp; Analytics for Societal Impact</a></p>
+<p><img alt="" src="_images/social-impact.jpg" /></p>
+<div class="section" id="the-era-of-blind-faith-in-big-data-must-end">
+<h3>The era of blind faith in big data must end<a class="headerlink" href="#the-era-of-blind-faith-in-big-data-must-end" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.youtube.com/watch?v=_2u_eHHzRto">▶<img alt="" src="http://img.youtube.com/vi/_2u_eHHzRto/0.jpg" /></a></p>
+</div>
+</div>
+<div class="section" id="literate-programming">
+<h2>Literate Programming<a class="headerlink" href="#literate-programming" title="Permalink to this headline">¶</a></h2>
+<p>Literate programming: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.</p>
+<blockquote>
+<div><p>Donald Knuth (1984)</p>
+</div></blockquote>
+<p><img alt="" src="_images/knuth-vs-mcilroy.png" /></p>
+<p>Source: https://catonmat.net/knuth-vs-mcilroy</p>
+</div>
+<div class="section" id="stream-processing">
+<h2>Stream Processing<a class="headerlink" href="#stream-processing" title="Permalink to this headline">¶</a></h2>
+<p>The definition of stream processing is exactly opposite of my definition of batch processing. In stream processing, you do not collect your data to reach certain quorum or timeout before you trigger your process. As soon as the data event is received, the program processes it, and creates the output. It’s event processing. So “real-time” word is somewhat redundant. Yet, a lot of systems do use “real-time” to describe them as low latency systems. sing-what-are-your-choices/</p>
+<p><img alt="" src="_images/streams.png" /></p>
+</div>
+<div class="section" id="machine-learning">
+<h2>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Machine learning is the science (and art) of programming computers so they can learn from data</p>
+</div></blockquote>
+<p>Aurélien Géron in Hands-on Machine Learning with Scikit-Learn and TensorFlow.</p>
+<p><img alt="" src="_images/machine-learning.jpg" /></p>
+</div>
+<div class="section" id="cloud-computing">
+<h2>Cloud Computing<a class="headerlink" href="#cloud-computing" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Cloud computing is a style of computing in which scalable and elastic IT-enabled capabilities are delivered as a service using internet technologies.</p>
+</div></blockquote>
+<p>Gartner Glossary</p>
+<p><img alt="" src="_images/cloudcomputing.jpg" /></p>
+</div>
+<div class="section" id="workflow-scheduling">
+<h2>Workflow Scheduling<a class="headerlink" href="#workflow-scheduling" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Scheduling workflow applications in cloud computing is one of the most challenging issues. Workflow applications contain many distinct tasks and complex structures. Every single task might include processing, entering, and accessing storage and software functions. For all these reasons, it is considered to be an NP-hard optimization problem.</p>
+</div></blockquote>
+<p>https://dl.acm.org/doi/10.1145/3341325.3342029</p>
+<p><img alt="" src="https://www.researchgate.net/profile/Mostapha_Zbakh2/publication/326672386/figure/fig3/AS:758393811767298&#64;1557826583595/Workflow-scheduling-architecture.png" /></p>
+<p><a class="reference external" href="https://www.researchgate.net/publication/326672386_Workflow_Scheduling_Issues_and_Techniques_in_Cloud_Computing_A_Systematic_Literature_Review">Source</a></p>
+</div>
+</div>
+<div class="section" id="technologies">
+<h1>Technologies<a class="headerlink" href="#technologies" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<p>A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.</p>
+<p><img alt="" src="_images/docker.png" /></p>
+</div>
+<div class="section" id="workload-management">
+<h2>Workload management<a class="headerlink" href="#workload-management" title="Permalink to this headline">¶</a></h2>
+<p>Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.</p>
+<p><img alt="" src="https://d33wubrfki0l68.cloudfront.net/69e55f968a6f44613384615c6a78b881bfe28bd6/9e66c/it/_common-resources/images/flower.svg" /></p>
+</div>
+<div class="section" id="data-ingestion">
+<h2>Data Ingestion<a class="headerlink" href="#data-ingestion" title="Permalink to this headline">¶</a></h2>
+<p>Logstash is an open source data collection engine with real-time pipelining capabilities.</p>
+<p>Logstash can dynamically unify data from disparate sources and normalize the data into destinations of your choice. Cleanse and democratize all your data for diverse advanced downstream analytics and visualization use cases.</p>
+<p><img alt="" src="https://www.elastic.co/guide/en/logstash/current/static/images/logstash.png" /></p>
+</div>
+<div class="section" id="data-streaming">
+<h2>Data Streaming<a class="headerlink" href="#data-streaming" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Kafka® is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies.</p>
+</div></blockquote>
+<p><img alt="" src="_images/kafka.jpg" /></p>
+</div>
+<div class="section" id="data-processing">
+<h2>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Apache Spark™ is a unified analytics engine for large-scale data processing.</p>
+</div></blockquote>
+<p><img alt="" src="_images/spark-logo.png" /></p>
+</div>
+<div class="section" id="data-indexing">
+<h2>Data Indexing<a class="headerlink" href="#data-indexing" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Elasticsearch is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. As the heart of the Elastic Stack, it centrally stores your data so you can discover the expected and uncover the unexpected.</p>
+</div></blockquote>
+<p><img alt="" src="_images/elastic-search.jpg" /></p>
+</div>
+<div class="section" id="data-visualization">
+<h2>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Kibana is a free and open user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Do anything from tracking query load to understanding the way requests flow through your apps.</p>
+</div></blockquote>
+<p><img alt="" src="https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt0423c2ca741d3c05/5ea8c90064f47652ec7993f4/brand-kibana-220x130.svg" /></p>
+</div>
+<div class="section" id="notebooks">
+<h2>Notebooks<a class="headerlink" href="#notebooks" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages.</p>
+</div></blockquote>
+<p><img alt="" src="_images/jupyter.png" /></p>
+</div>
+<div class="section" id="id1">
+<h2>Workflow Scheduling<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Airflow is a platform created by the community to programmatically author, schedule and monitor workflows</p>
+</div></blockquote>
+<p><img alt="" src="https://airflow.apache.org/images/feature-image.png" /></p>
+</div>
+</div>
+<div class="section" id="applications">
+<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-science-business-intelligence">
+<h2>Data Science &amp;&amp; Business Intelligence<a class="headerlink" href="#data-science-business-intelligence" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://www.kdnuggets.com/images/data-science-vs-business-intelligence-700.jpg" /></p>
+<p><a class="reference external" href="https://www.kdnuggets.com/2021/02/data-science-vs-business-intelligence-explained.html">Source</a></p>
+</div>
+<div class="section" id="text-mining">
+<h2>Text Mining<a class="headerlink" href="#text-mining" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://www.fosteropenscience.eu/system/files/uploaded-images/text%20mining%20steps.png" />
+<a class="reference external" href="https://www.fosteropenscience.eu/content/text-mining-101">Source</a></p>
+</div>
+<div class="section" id="new-ideas-welcome">
+<h2>New Ideas Welcome<a class="headerlink" href="#new-ideas-welcome" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/supriseme.gif" /></p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="Docker.html" title="next page">Docker Introduction</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
