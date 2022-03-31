@@ -1,12 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Docker Introduction &#8212; Techologies for Advanced Programming</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -33,36 +31,41 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/togglebutton.js"></script>
-    <script type="text/javascript" src="_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="_static/copybutton.js"></script>
-    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script type="text/javascript" src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script type="text/javascript">
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Technologies for advanced programming - 2021" href="TAPIntroduction.html" />
-
+    <link rel="next" title="Docker Build Your Own Container" href="Docker%20-%20BYOC.html" />
+    <link rel="prev" title="Technologies for advanced programming (TAP) - 2022" href="TAPIntroduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -71,34 +74,64 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="TAPIntroduction.html">
-   Technologies for advanced programming - 2021
+   Technologies for advanced programming (TAP) - 2022
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Docker Introduction
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker%20-%20BYOC.html">
+   Docker Build Your Own Container
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Ingestion.html">
+   Data Ingestion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Apache%20Flume.html">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logstash.html">
+   Logstash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fluentd.html">
+   Fluentd
+  </a>
+ </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -114,21 +147,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -142,20 +175,20 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -174,150 +207,532 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-a-container">
-   What is a Container?
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Docker Introduction
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#containers-101">
-   Containers 101
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-s-a-linux-container">
-   What’s a Linux container?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker">
-   Docker
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#container-vs-virtual-machines">
-   Container vs Virtual Machines
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#containers">
-     CONTAINERS
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-container">
+     What is a Container?
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#virtual-machines">
-     VIRTUAL MACHINES
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers-101">
+     Containers 101
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#containers-vs-virtual-machines">
-     Containers vs Virtual Machines
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-s-a-linux-container">
+     What’s a Linux container?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     Docker
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#container-vs-virtual-machines">
+     Container vs Virtual Machines
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#container">
+       CONTAINER
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#virtual-machines">
+       VIRTUAL MACHINES
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#containers-vs-virtual-machines">
+       Containers vs Virtual Machines
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#containers-vs-virtual-machines-2">
+       Containers vs Virtual Machines (2)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers-virtual-machines">
+     Containers &amp;&amp; Virtual Machines
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-architecture">
+     Docker Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install">
+     Install
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows">
+       Windows
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#docker-on-wsl">
+         Docker on WSL
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#from-docker-blog">
+           From Docker Blog
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#from-docker-docs">
+           From Docker Docs
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux">
+     Linux
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mac">
+     Mac
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#containers-virtual-machines">
-   Containers &amp;&amp; Virtual Machines
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#m1-released">
+   M1 Released
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-architecture">
-   Docker Architecture
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-desktop-for-apple-silicon">
+   Docker Desktop for Apple silicon
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo">
+     Demo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hello-world">
+     Hello World
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-images">
+     List Images
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-containers">
+     List Containers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-container-name">
+     Docker Container Name
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic">
+     Automatic
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ubuntu">
+     Ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#play-with-docker">
+   Play with Docker
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-playground">
+     Docker playground
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-simple-interactive-and-fun-playground-to-learn-docker">
+       A simple, interactive and fun playground to learn Docker
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#katacoda">
+     Katacoda
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-components">
+     Docker Components
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#images">
+     Images
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers">
+     Containers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-hub">
+     Docker Hub
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-cli">
+     Docker CLI
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-studio-code-integration">
+     Visual Studio Code Integration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-as-a-service">
+     Docker as a service
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#aws">
+       AWS
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#azure">
+       Azure
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#google-cloud">
+     Google Cloud
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hosting">
+     Hosting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-actions">
+   Github Actions
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install">
-   Install
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#demo">
-   Demo
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hello-world">
-   Hello World
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-images">
-   List Images
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-containers">
-   List Containers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-container-name">
-   Docker Container Name
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#automatic">
-   Automatic
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubuntu">
-   Ubuntu
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-components">
-   Docker Components
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#images">
-   Images
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Containers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-hub">
-   Docker Hub
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docker-run">
-   Docker run
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visual-studio-code-integration">
-   Visual Studio Code Integration
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#not-only-docker">
+   Not only Docker
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Docker Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Docker Introduction
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-container">
+     What is a Container?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers-101">
+     Containers 101
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-s-a-linux-container">
+     What’s a Linux container?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     Docker
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#container-vs-virtual-machines">
+     Container vs Virtual Machines
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#container">
+       CONTAINER
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#virtual-machines">
+       VIRTUAL MACHINES
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#containers-vs-virtual-machines">
+       Containers vs Virtual Machines
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#containers-vs-virtual-machines-2">
+       Containers vs Virtual Machines (2)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers-virtual-machines">
+     Containers &amp;&amp; Virtual Machines
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-architecture">
+     Docker Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install">
+     Install
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows">
+       Windows
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#docker-on-wsl">
+         Docker on WSL
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#from-docker-blog">
+           From Docker Blog
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#from-docker-docs">
+           From Docker Docs
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linux">
+     Linux
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mac">
+     Mac
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#m1-released">
+   M1 Released
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker-desktop-for-apple-silicon">
+   Docker Desktop for Apple silicon
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#demo">
+     Demo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hello-world">
+     Hello World
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-images">
+     List Images
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-containers">
+     List Containers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-container-name">
+     Docker Container Name
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatic">
+     Automatic
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ubuntu">
+     Ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#play-with-docker">
+   Play with Docker
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-playground">
+     Docker playground
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-simple-interactive-and-fun-playground-to-learn-docker">
+       A simple, interactive and fun playground to learn Docker
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#katacoda">
+     Katacoda
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-components">
+     Docker Components
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#images">
+     Images
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#containers">
+     Containers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-hub">
+     Docker Hub
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-cli">
+     Docker CLI
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-studio-code-integration">
+     Visual Studio Code Integration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-as-a-service">
+     Docker as a service
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#aws">
+       AWS
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#azure">
+       Azure
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#google-cloud">
+     Google Cloud
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hosting">
+     Hosting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-actions">
+   Github Actions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#not-only-docker">
+   Not only Docker
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="docker-introduction">
+  <div class="tex2jax_ignore mathjax_ignore section" id="docker-introduction">
 <h1>Docker Introduction<a class="headerlink" href="#docker-introduction" title="Permalink to this headline">¶</a></h1>
 <p><img alt="Containers" src="_images/container.jpg" /></p>
 <div class="section" id="what-is-a-container">
@@ -326,17 +741,17 @@
 <li><p>A standardized unit of software</p></li>
 <li><p>A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another</p></li>
 </ul>
-<p>https://www.docker.com/resources/what-container</p>
+<p><a class="reference external" href="https://www.docker.com/resources/what-container">https://www.docker.com/resources/what-container</a></p>
 </div>
 <div class="section" id="containers-101">
 <h2>Containers 101<a class="headerlink" href="#containers-101" title="Permalink to this headline">¶</a></h2>
 <p>Containers offer a logical packaging mechanism in which applications can be abstracted from the environment in which they actually run. This decoupling allows container-based applications to be deployed easily and consistently, regardless of whether the target environment is a private data center, the public cloud, or even a developer’s personal laptop. Containerization provides a clean separation of concerns, as developers focus on their application logic and dependencies, while IT operations teams can focus on deployment and management without bothering with application details such as specific software versions and configurations specific to the app.</p>
-<p>https://cloud.google.com/containers?hl=en</p>
+<p><a class="reference external" href="https://cloud.google.com/containers?hl=en">https://cloud.google.com/containers?hl=en</a></p>
 </div>
 <div class="section" id="what-s-a-linux-container">
 <h2>What’s a Linux container?<a class="headerlink" href="#what-s-a-linux-container" title="Permalink to this headline">¶</a></h2>
 <p>A Linux® container is a set of one or more processes that are isolated from the rest of the system. All the files necessary to run them are provided from a distinct image, meaning that Linux containers are portable and consistent as they move from development, to testing, and finally to production. This makes them much quicker than development pipelines that rely on replicating traditional testing environments. Because of their popularity and ease of use containers are also an important part of IT security.</p>
-<p>https://www.redhat.com/en/topics/containers/whats-a-linux-container</p>
+<p><a class="reference external" href="https://www.redhat.com/en/topics/containers/whats-a-linux-container">https://www.redhat.com/en/topics/containers/whats-a-linux-container</a></p>
 </div>
 <div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
@@ -353,8 +768,8 @@
 </div>
 <div class="section" id="container-vs-virtual-machines">
 <h2>Container vs Virtual Machines<a class="headerlink" href="#container-vs-virtual-machines" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="containers">
-<h3>CONTAINERS<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="container">
+<h3>CONTAINER<a class="headerlink" href="#container" title="Permalink to this headline">¶</a></h3>
 <p>Containers are an abstraction at the app layer that packages code and dependencies together. Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space. Containers take up less space than VMs (container images are typically tens of MBs in size), can handle more applications and require fewer VMs and Operating systems.</p>
 </div>
 <div class="section" id="virtual-machines">
@@ -369,11 +784,15 @@
 <h3>Containers vs Virtual Machines<a class="headerlink" href="#containers-vs-virtual-machines" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=L1ie8negCjc">▶<img alt="" src="https://img.youtube.com/vi/L1ie8negCjc/0.jpg" /></a></p>
 </div>
+<div class="section" id="containers-vs-virtual-machines-2">
+<h3>Containers vs Virtual Machines (2)<a class="headerlink" href="#containers-vs-virtual-machines-2" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=cjXI-yxqGTI">▶<img alt="" src="https://img.youtube.com/vi/cjXI-yxqGTI/0.jpg" /></a></p>
+</div>
 </div>
 <div class="section" id="containers-virtual-machines">
 <h2>Containers &amp;&amp; Virtual Machines<a class="headerlink" href="#containers-virtual-machines" title="Permalink to this headline">¶</a></h2>
 <p><img alt="" src="_images/containersandvirtualmachine.png" /></p>
-<p>[https://medium.com/better-programming/containers-and-virtual-machines-an-overview-94c558905b6]</p>
+<p>[<a class="reference external" href="https://medium.com/better-programming/containers-and-virtual-machines-an-overview-94c558905b6">https://medium.com/better-programming/containers-and-virtual-machines-an-overview-94c558905b6</a>]</p>
 </div>
 <div class="section" id="docker-architecture">
 <h2>Docker Architecture<a class="headerlink" href="#docker-architecture" title="Permalink to this headline">¶</a></h2>
@@ -381,19 +800,85 @@
 </div>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
-<p>https://docs.docker.com/install/</p>
+<p>Follow instructions on <a class="reference external" href="https://docs.docker.com/install/">https://docs.docker.com/install/</a></p>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="docker-on-wsl">
+<h4>Docker on WSL<a class="headerlink" href="#docker-on-wsl" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="from-docker-blog">
+<h5>From Docker Blog<a class="headerlink" href="#from-docker-blog" title="Permalink to this headline">¶</a></h5>
+<p>Dec 15 2021</p>
+<p>WSL 2 GPU Support for Docker Desktop on NVIDIA GPUs</p>
+<p><a class="reference external" href="https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/">https://www.docker.com/blog/wsl-2-gpu-support-for-docker-desktop-on-nvidia-gpus/</a></p>
+<p>Dec 21 2020</p>
+<p>WSL 2 GPU Support is Here</p>
+<p><a class="reference external" href="https://www.docker.com/blog/wsl-2-gpu-support-is-here/">https://www.docker.com/blog/wsl-2-gpu-support-is-here/</a></p>
+<p>May 20 2020
+Creating the best Linux Development experience on Windows &amp; WSL 2
+<a class="reference external" href="https://www.docker.com/blog/creating-the-best-linux-development-experience-on-windows-wsl-2/">https://www.docker.com/blog/creating-the-best-linux-development-experience-on-windows-wsl-2/</a></p>
+<p>Jun 16 2019</p>
+<p><a class="reference external" href="https://www.docker.com/blog/docker-hearts-wsl-2/">https://www.docker.com/blog/docker-hearts-wsl-2/</a></p>
+<p>Jul 31 2019</p>
+<p><a class="reference external" href="https://www.docker.com/blog/5-things-docker-desktop-wsl2-tech-preview/">https://www.docker.com/blog/5-things-docker-desktop-wsl2-tech-preview/</a></p>
+<p>Aug 14 2019</p>
+<p><a class="reference external" href="https://www.docker.com/blog/developing-docker-windows-app-wsl2/">https://www.docker.com/blog/developing-docker-windows-app-wsl2/</a></p>
+<p>Oct 24 2019</p>
+<p><a class="reference external" href="https://www.docker.com/blog/new-docker-desktop-wsl2-backend/">https://www.docker.com/blog/new-docker-desktop-wsl2-backend/</a></p>
+<p>Apr 13 2020</p>
+<p><a class="reference external" href="https://www.docker.com/blog/how-we-test-docker-desktop-with-wsl-2/">https://www.docker.com/blog/how-we-test-docker-desktop-with-wsl-2/</a></p>
+<p>May 04 2020</p>
+<p><a class="reference external" href="https://www.docker.com/blog/docker-desktop-wsl-2-best-practices/">https://www.docker.com/blog/docker-desktop-wsl-2-best-practices/</a></p>
+<p>May 20 2020</p>
+<p><a class="reference external" href="https://www.docker.com/blog/creating-the-best-linux-development-experience-on-windows-wsl-2/">https://www.docker.com/blog/creating-the-best-linux-development-experience-on-windows-wsl-2/</a></p>
+<p>Aug 20 2020</p>
+<p><a class="reference external" href="https://www.docker.com/blog/docker-desktop-wsl-2-backport-update/">https://www.docker.com/blog/docker-desktop-wsl-2-backport-update/</a></p>
+<p>Dec 21 2020</p>
+<p><a class="reference external" href="https://www.docker.com/blog/wsl-2-gpu-support-is-here/">https://www.docker.com/blog/wsl-2-gpu-support-is-here/</a></p>
 </div>
+<div class="section" id="from-docker-docs">
+<h5>From Docker Docs<a class="headerlink" href="#from-docker-docs" title="Permalink to this headline">¶</a></h5>
+<p><a class="reference external" href="https://docs.docker.com/docker-for-windows/wsl/">https://docs.docker.com/docker-for-windows/wsl/</a></p>
+<p><img alt="" src="https://code.visualstudio.com/assets/blogs/2020/03/02/docker-in-wsl2.png" />
+<a class="reference external" href="https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2">https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2</a></p>
+<p><img alt="" src="https://img.devrant.com/devrant/rant/r_1933665_e3nej.jpg" />
+<a class="reference external" href="https://devrant.com/rants/1933665/marvelous">https://devrant.com/rants/1933665/marvelous</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://memegenerator.net/img/instances/65479487/a-docker-on-linux-container-is-literally-just-another-process.jpg" /></p>
+</div>
+<div class="section" id="mac">
+<h2>Mac<a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i.redd.it/yy2amgcfwwk31.png" /></p>
+<p><a class="reference external" href="https://www.reddit.com/r/ProgrammerHumor/comments/d0ck7i/docker_on_mac/">https://www.reddit.com/r/ProgrammerHumor/comments/d0ck7i/docker_on_mac/</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="m1-released">
+<h1>M1 Released<a class="headerlink" href="#m1-released" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="https://1.bp.blogspot.com/-VVMY436xVtQ/X9aQFwHUTTI/AAAAAAAAUZw/rHeLkAWALVwIVIj82MshhUflPl9_9SKgwCLcBGAsYHQ/s320/9e9.gif" />
+[<a class="reference external" href="https://www.geekaholic.org/2020/12/diy-docker-on-apple-silicon-m1.html">https://www.geekaholic.org/2020/12/diy-docker-on-apple-silicon-m1.html</a>]</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="docker-desktop-for-apple-silicon">
+<h1>Docker Desktop for Apple silicon<a class="headerlink" href="#docker-desktop-for-apple-silicon" title="Permalink to this headline">¶</a></h1>
+<p>15 April 2021</p>
+<p><a class="reference external" href="https://www.docker.com/blog/released-docker-desktop-for-mac-apple-silicon/">https://www.docker.com/blog/released-docker-desktop-for-mac-apple-silicon/</a></p>
+<p><a class="reference external" href="https://docs.docker.com/desktop/mac/apple-silicon/">https://docs.docker.com/desktop/mac/apple-silicon/</a></p>
+<p><img alt="" src="https://i.imgflip.com/68fcn5.jpg" />
+<a class="reference external" href="https://imgflip.com/i/68fcn5">NicsMeme</a></p>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
 docker --version
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Docker version 19.03.13-beta2, build ff3fbc9d55
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Docker version 20.10.12, build e91ed57
 </pre></div>
 </div>
 </div>
@@ -415,7 +900,7 @@ This message shows that your installation appears to be working correctly.
 To generate this message, Docker took the following steps:
  1. The Docker client contacted the Docker daemon.
  2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
-    (amd64)
+    (arm64v8)
  3. The Docker daemon created a new container from that image which runs the
     executable that produces the output you are currently reading.
  4. The Docker daemon streamed that output to the Docker client, which sent it
@@ -444,10 +929,9 @@ docker image ls
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-docker              latest              e036013d6d10        5 days ago          224MB
-ubuntu              latest              72300a873c2c        2 weeks ago         64.2MB
-hello-world         latest              fce289e99eb9        14 months ago       1.84kB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+ubuntu        latest    3223373eca24   10 days ago    65.6MB
+hello-world   latest    18e5af790473   5 months ago   9.14kB
 </pre></div>
 </div>
 </div>
@@ -463,14 +947,10 @@ docker container ls --all
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
-5eb5cfdd46c8        hello-world         &quot;/hello&quot;                 4 minutes ago       Exited (0) 4 minutes ago                       great_spence
-5c27ec4fd27f        hello-world         &quot;/hello&quot;                 7 minutes ago       Exited (0) 7 minutes ago                       magical_bassi
-dda9ed941796        ubuntu              &quot;/bin/bash&quot;              3 days ago          Exited (0) 3 days ago                          recursing_brattain
-8e606a6facad        docker              &quot;docker-entrypoint.s…&quot;   3 days ago          Exited (2) 3 days ago                          hungry_bardeen
-3cfff94d066f        docker              &quot;docker-entrypoint.s…&quot;   3 days ago          Exited (1) 3 days ago                          objective_cori
-c317edabb3ca        hello-world         &quot;/hello&quot;                 5 days ago          Exited (0) 5 days ago                          quirky_rosalind
-05cb8cca7aa4        hello-world         &quot;/hello&quot;                 5 days ago          Exited (0) 5 days ago                          suspicious_beaver
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+a081c996687a   hello-world   &quot;/hello&quot;   6 minutes ago   Exited (0) 6 minutes ago             modest_hoover
+2b7cec2f469e   ubuntu        &quot;bash&quot;     45 hours ago    Exited (0) 45 hours ago              determined_saha
+8aa763aaa0ff   hello-world   &quot;/hello&quot;   46 hours ago    Exited (0) 46 hours ago              eloquent_beaver
 </pre></div>
 </div>
 </div>
@@ -482,7 +962,7 @@ c317edabb3ca        hello-world         &quot;/hello&quot;                 5 day
 <div class="section" id="automatic">
 <h2>Automatic<a class="headerlink" href="#automatic" title="Permalink to this headline">¶</a></h2>
 <p>Docker container have an id and a name, if not specified is generated automatically by an algoritm
-[https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go]</p>
+<a class="reference external" href="https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go">names-generator.go</a></p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nx">name</span> <span class="o">==</span> <span class="s">&quot;boring_wozniak&quot;</span> <span class="cm">/* Steve Wozniak is not boring */</span> <span class="p">{</span>
   <span class="k">goto</span> <span class="nx">begin</span>
 <span class="p">}</span>
@@ -495,32 +975,141 @@ c317edabb3ca        hello-world         &quot;/hello&quot;                 5 day
 </pre></div>
 </div>
 </div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="play-with-docker">
+<h1>Play with Docker<a class="headerlink" href="#play-with-docker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="docker-playground">
+<h2>Docker playground<a class="headerlink" href="#docker-playground" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-simple-interactive-and-fun-playground-to-learn-docker">
+<h3>A simple, interactive and fun playground to learn Docker<a class="headerlink" href="#a-simple-interactive-and-fun-playground-to-learn-docker" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.docker.com/play-with-docker">https://www.docker.com/play-with-docker</a></p>
+<p><img alt="" src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2020-01/Moby-and-Friends.jpeg?itok=pwBxOtY6" /></p>
+</div>
+</div>
+<div class="section" id="katacoda">
+<h2>Katacoda<a class="headerlink" href="#katacoda" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.katacoda.com/courses/docker/playground">https://www.katacoda.com/courses/docker/playground</a></p>
+<p><img alt="" src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_katacoda.svg" /></p>
+</div>
 <div class="section" id="docker-components">
 <h2>Docker Components<a class="headerlink" href="#docker-components" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="images">
 <h2>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
-<p>An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.</p>
-<p>You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.</p>
+<p><img alt="" src="https://i.imgflip.com/68irfn.jpg" />
+<a class="reference external" href="https://imgflip.com/i/68irfn">Tap Quotes</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words">https://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words</a></p>
+<p><a class="reference external" href="http://boxmanstudios.com/blog/industry-knowledge/a-short-history-of-shipping-container-architecture/">http://boxmanstudios.com/blog/industry-knowledge/a-short-history-of-shipping-container-architecture/</a>
+<a class="reference external" href="https://medium.com/article-group/building-for-transport-9ff63da0681b">https://medium.com/article-group/building-for-transport-9ff63da0681b</a></p>
+<p>An image is a read-only template with instructions for creating a Docker container.</p>
+<p>Often, an image is based on another image, with some additional customization.</p>
+<p>For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.</p>
+<p>You might create your own images or you might only use those created by others and published in a registry.
+To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it.</p>
+<p>Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt.</p>
+<p>This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.</p>
+<p><img alt="" src="https://miro.medium.com/max/1400/1*Z8zyVBwpwur2tTdRTkdG8g.png" />
+<a class="reference external" href="https://ragin.medium.com/docker-what-it-is-how-images-are-structured-docker-vs-vm-and-some-tips-part-1-d9686303590f">https://ragin.medium.com/docker-what-it-is-how-images-are-structured-docker-vs-vm-and-some-tips-part-1-d9686303590f</a></p>
 </div>
-<div class="section" id="id1">
-<h2>Containers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
 <p>A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.</p>
 <p>By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container’s network, storage, or other underlying subsystems are from other containers or from the host machine.</p>
 <p>A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.</p>
 </div>
 <div class="section" id="docker-hub">
 <h2>Docker Hub<a class="headerlink" href="#docker-hub" title="Permalink to this headline">¶</a></h2>
-<p>https://docs.docker.com/docker-hub/</p>
+<p>Docker Hub is a service provided by Docker for finding and sharing container images with your team. It is the world’s largest repository of container images with an array of content sources including container community developers, open source projects and independent software vendors (ISV) building and distributing their code in containers.</p>
+<p><a class="reference external" href="https://docs.docker.com/docker-hub/">https://docs.docker.com/docker-hub/</a></p>
+<p>For production enviroments consider <a class="reference external" href="https://www.docker.com/increase-rate-limits">rate limits</a> set in November 2020</p>
 </div>
-<div class="section" id="docker-run">
-<h2>Docker run<a class="headerlink" href="#docker-run" title="Permalink to this headline">¶</a></h2>
-<p>https://docs.docker.com/engine/reference/commandline/run/</p>
+<div class="section" id="docker-cli">
+<h2>Docker CLI<a class="headerlink" href="#docker-cli" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command first <strong>creates</strong> a writeable container layer over the specified image, and then <em><strong>starts</strong></em> it using the specified command.</p>
+<p>That is, <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> is equivalent to the API <code class="docutils literal notranslate"><span class="pre">/containers/create</span></code> then <code class="docutils literal notranslate"><span class="pre">/containers/(id)/start</span></code>.</p>
+<p>A stopped container can be restarted with all its previous changes intact using docker start.</p>
+<p>See docker ps -a to view a list of all containers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command can be used in combination with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">commit</span></code> to change the command that a container runs.</p>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/commandline/run/">https://docs.docker.com/engine/reference/commandline/run/</a></p>
 </div>
 <div class="section" id="visual-studio-code-integration">
 <h2>Visual Studio Code Integration<a class="headerlink" href="#visual-studio-code-integration" title="Permalink to this headline">¶</a></h2>
-<p>https://code.visualstudio.com/docs/containers/overview</p>
+<p>The Docker extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code.</p>
+<p>This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the Docker tutorial first to understand key Docker concepts</p>
+<p><a class="reference external" href="https://code.visualstudio.com/docs/containers/overview">https://code.visualstudio.com/docs/containers/overview</a></p>
 </div>
+<div class="section" id="docker-as-a-service">
+<h2>Docker as a service<a class="headerlink" href="#docker-as-a-service" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aws">
+<h3>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Docker lets you build, test, and deploy applications quickly
+<a class="reference external" href="https://aws.amazon.com/docker/">https://aws.amazon.com/docker/</a></p>
+</div></blockquote>
+<p>Recent announcements: Docker collaborates with AWS to help developers speed delivery of modern apps to the cloud. This collaboration helps developers use Docker Compose and Docker Desktop to leverage the same local workflow they use today to seamlessly deploy apps on Amazon ECS and AWS Fargate. Read the blog for more information.
+<a class="reference external" href="https://aws.amazon.com/it/blogs/containers/deploy-applications-on-amazon-ecs-using-docker-compose/">https://aws.amazon.com/it/blogs/containers/deploy-applications-on-amazon-ecs-using-docker-compose/</a></p>
+<p>AWS Fargate is a serverless compute engine for containers that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). Fargate makes it easy for you to focus on building your applications. Fargate removes the need to provision and manage servers, lets you specify and pay for resources per application, and improves security through application isolation by design.</p>
+<p><a class="reference external" href="https://aws.amazon.com/fargate/">https://aws.amazon.com/fargate/</a></p>
+<p><img alt="" src="https://d1.awsstatic.com/re19/FargateonEKS/Product-Page-Diagram_Fargate%402x.a20fb2b15c2aebeda3a44dbbb0b10b82fb89aa6a.png" /></p>
+<p>x</p>
+<p>Amazon Elastic Kubernetes Service (Amazon EKS) gives you the flexibility to start, run, and scale Kubernetes applications in the AWS cloud or on-premises. Amazon EKS helps you provide highly-available and secure clusters and automates key tasks such as patching, node provisioning, and updates.</p>
+<p><a class="reference external" href="https://aws.amazon.com/eks/">https://aws.amazon.com/eks/</a></p>
+<p><img alt="" src="https://d1.awsstatic.com/reInvent/re20-pdp-tier2-3/EKS/product-page-diagram_Amazon-EKS&#64;2x.ddc48a43756bff3baead68406d3cac88b4151a7e.png" /></p>
+<p>AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. AWS Batch dynamically provisions the optimal quantity and type of compute resources (e.g., CPU or memory optimized instances) based on the volume and specific resource requirements of the batch jobs submitted.</p>
+<p><a class="reference external" href="https://aws.amazon.com/batch/">https://aws.amazon.com/batch/</a></p>
+<p><img alt="" src="https://d1.awsstatic.com/awsbatch/product-page-diagram-AWS-Batch_financial-services.a3992e70e791dffd8245c09ae1e3e6f89310036a.png" /></p>
+<p>x</p>
+</div>
+<div class="section" id="azure">
+<h3>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Save costs by lifting and shifting your existing applications to containers, and build microservices applications to deliver value to your users faster. Use end-to-end developer and CI/CD tools to develop, update, and deploy your containerized applications.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://azure.microsoft.com/en-us/product-categories/containers/">https://azure.microsoft.com/en-us/product-categories/containers/</a></p>
+<blockquote>
+<div><p>Deploy and manage containerized applications more easily with a fully managed Kubernetes service. Azure Kubernetes Service (AKS) offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. Unite your development and operations teams on a single platform to rapidly build, deliver, and scale applications with confidence.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://azure.microsoft.com/en-us/services/kubernetes-service/">https://azure.microsoft.com/en-us/services/kubernetes-service/</a></p>
+<p><img alt="" src="https://azurecomcdn.azureedge.net/cvt-caf9b3609b1d754524c718b4cde399fda4ea781184fcff2c2e29fbbded7c0ae5/images/page/services/kubernetes-service/migrate-existing-applications-with-aks.png" /></p>
+<blockquote>
+<div><p>Quickly build, deploy, and scale web apps and APIs on your terms. Work with .NET, .NET Core, Node.js, Java, Python or PHP, in containers or running on Windows or Linux. Meet rigorous, enterprise-grade performance, security and compliance requirements used a trusted, fully managed platform that handles over 40 billion requests per day.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://azure.microsoft.com/en-us/services/app-service/">https://azure.microsoft.com/en-us/services/app-service/</a></p>
+<p><img alt="" src="https://azurecomcdn.azureedge.net/cvt-caf9b3609b1d754524c718b4cde399fda4ea781184fcff2c2e29fbbded7c0ae5/images/page/services/app-service/index/benefit-1.png" /></p>
+<blockquote>
+<div><p>Develop apps fast without managing virtual machines or having to learn new tools—it’s just your application, in a container, running in the cloud.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://azure.microsoft.com/en-us/services/container-instances/">https://azure.microsoft.com/en-us/services/container-instances/</a></p>
+<p><img alt="" src="https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/a696ef01-90b3-4c1a-9a70-8cd9791c8204.gif" /></p>
+</div>
+</div>
+<div class="section" id="google-cloud">
+<h2>Google Cloud<a class="headerlink" href="#google-cloud" title="Permalink to this headline">¶</a></h2>
+<p>From Gmail to YouTube to Search, everything at Google runs in containers. Containerization allows our development teams to move fast, deploy software efficiently, and operate at an unprecedented scale. Each week, we start over several billion containers. We’ve learned a lot about running containerized workloads in production over the past decade, and we’ve shared this knowledge with the community along the way: from the early days of contributing cgroups to the Linux kernel, to taking designs from our internal tools and open sourcing them as the Kubernetes project.</p>
+<p><a class="reference external" href="https://cloud.google.com/containers">https://cloud.google.com/containers</a></p>
+<blockquote>
+<div><p>We’ve had so much success with our internal cluster management system Borg that we’ve taken what we’ve learned and put it into the open source project Kubernetes. Now you and other companies can benefit from our decades of experience.</p>
+</div></blockquote>
+<p><img alt="" src="https://cloud.google.com/images/containers-landing/kubernetes-hybrid.png" /></p>
+<ul class="simple">
+<li></li>
+</ul>
+<p>It doesn’t stop there. Google Cloud Platform provides the tools you need to use containers from development to production. Cloud Build and Container Registry provide Docker image storage and management, backed by both Google’s high security standards and world-class network. Google’s Container-Optimized OS provides a lightweight, highly secure operating system that comes with the Docker and Kubernetes runtimes pre-installed. All your container management can take place on GCP.</p>
+<p><img alt="" src="https://cloud.google.com/images/containers-landing/complete-container-solution.png" /></p>
+</div>
+<div class="section" id="hosting">
+<h2>Hosting<a class="headerlink" href="#hosting" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://geekflare.com/docker-hosting-platforms/">https://geekflare.com/docker-hosting-platforms/</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="github-actions">
+<h1>Github Actions<a class="headerlink" href="#github-actions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="not-only-docker">
+<h1>Not only Docker<a class="headerlink" href="#not-only-docker" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.containiq.com/post/docker-alternatives">https://www.containiq.com/post/docker-alternatives</a></p>
+<p><a class="reference external" href="https://medium.com/technopanti/docker-vs-podman-c03359fabf77">https://medium.com/technopanti/docker-vs-podman-c03359fabf77</a></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -545,35 +1134,42 @@ c317edabb3ca        hello-world         &quot;/hello&quot;                 5 day
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="TAPIntroduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Technologies for advanced programming (TAP) - 2022</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Docker%20-%20BYOC.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Docker Build Your Own Container</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By The Jupyter Book community<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="TAPIntroduction.html" title="previous page">Technologies for advanced programming - 2021</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By The Jupyter Book community<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
   </body>
 </html>

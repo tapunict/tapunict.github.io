@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Ingestion &#8212; Techologies for Advanced Programming</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Apache Flume" href="Apache%20Flume.html" />
+    <link rel="prev" title="Docker Build Your Own Container" href="Docker%20-%20BYOC.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TAPIntroduction.html">
+   Technologies for advanced programming (TAP) - 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker.html">
+   Docker Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker%20-%20BYOC.html">
+   Docker Build Your Own Container
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Ingestion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Apache%20Flume.html">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logstash.html">
+   Logstash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fluentd.html">
+   Fluentd
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Data Ingestion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Data Ingestion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Ingestion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-data-ingestion">
+     What is Data Ingestion ?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-short">
+       In short
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-market-perspective">
+     A Market Perspective
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#magic-quadrant-for-enterprise-integration-platform-as-a-service">
+     Magic Quadrant for Enterprise Integration Platform as a Service
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informatica">
+     Informatica
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#talend">
+     Talend
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-ready-data-at-your-fingertips">
+     Analysis-ready data at your fingertips
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ingestion-vs-data-integration">
+     Data Ingestion vs Data Integration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-see-on-quora">
+     Let’s see on Quora
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#big-data-ingestion">
+   Big Data Ingestion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#big-data-ingestion-involves">
+     Big Data Ingestion involves
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#connecting-to-various-data-sources">
+       connecting to various data sources
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extracting-the-data">
+       extracting the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#detecting-changed-data">
+       detecting changed data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#it-s-about-moving-data-and-especially-unstructured-data">
+     It’s about moving data - and especially unstructured data -
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#from-where-it-is-originated">
+       from where it is originated
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#into-a-system-where-it-can-be-stored-and-analyzed">
+       into a system where it can be stored and analyzed.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-ingestion-is-the-beginning-of-data-pipeline-where-it-obtains-or-import-data-for-immediate-use">
+   Data Ingestion is the beginning of Data Pipeline where it obtains or import data for immediate use.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effective-data-ingestion-process-begins-by">
+   Effective Data Ingestion process begins by
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prioritizing-data-sources">
+     prioritizing data sources
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validating-individual-files">
+     validating individual files
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#routing-data-items-to-the-correct-destination">
+     routing data items to the correct destination
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-velocity">
+     Data Velocity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-size">
+     Data Size
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-frequency-batch-real-time">
+     Data Frequency (Batch, Real-Time)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-format-structured-semi-structured-unstructured">
+     Data Format (Structured, Semi-Structured, Unstructured)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-ingestion-types">
+   Data Ingestion Types
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batch-micro-batch">
+   Batch/Micro Batch
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-time-streaming">
+   Real Time / Streaming
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-time-examples">
+   Real Time Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications-of-stream-processing">
+   Applications of Stream Processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complex-event-processing">
+     complex event processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-ingestion-tools">
+   Data Ingestion Tools
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Ingestion</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Ingestion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-data-ingestion">
+     What is Data Ingestion ?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-short">
+       In short
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-market-perspective">
+     A Market Perspective
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#magic-quadrant-for-enterprise-integration-platform-as-a-service">
+     Magic Quadrant for Enterprise Integration Platform as a Service
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informatica">
+     Informatica
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#talend">
+     Talend
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-ready-data-at-your-fingertips">
+     Analysis-ready data at your fingertips
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-ingestion-vs-data-integration">
+     Data Ingestion vs Data Integration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-see-on-quora">
+     Let’s see on Quora
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#big-data-ingestion">
+   Big Data Ingestion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#big-data-ingestion-involves">
+     Big Data Ingestion involves
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#connecting-to-various-data-sources">
+       connecting to various data sources
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extracting-the-data">
+       extracting the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#detecting-changed-data">
+       detecting changed data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#it-s-about-moving-data-and-especially-unstructured-data">
+     It’s about moving data - and especially unstructured data -
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#from-where-it-is-originated">
+       from where it is originated
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#into-a-system-where-it-can-be-stored-and-analyzed">
+       into a system where it can be stored and analyzed.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-ingestion-is-the-beginning-of-data-pipeline-where-it-obtains-or-import-data-for-immediate-use">
+   Data Ingestion is the beginning of Data Pipeline where it obtains or import data for immediate use.
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effective-data-ingestion-process-begins-by">
+   Effective Data Ingestion process begins by
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prioritizing-data-sources">
+     prioritizing data sources
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validating-individual-files">
+     validating individual files
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#routing-data-items-to-the-correct-destination">
+     routing data items to the correct destination
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-velocity">
+     Data Velocity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-size">
+     Data Size
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-frequency-batch-real-time">
+     Data Frequency (Batch, Real-Time)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-format-structured-semi-structured-unstructured">
+     Data Format (Structured, Semi-Structured, Unstructured)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-ingestion-types">
+   Data Ingestion Types
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batch-micro-batch">
+   Batch/Micro Batch
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-time-streaming">
+   Real Time / Streaming
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-time-examples">
+   Real Time Examples
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications-of-stream-processing">
+   Applications of Stream Processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complex-event-processing">
+     complex event processing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-ingestion-tools">
+   Data Ingestion Tools
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-ingestion">
+<h1>Data Ingestion<a class="headerlink" href="#data-ingestion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-data-ingestion">
+<h2>What is Data Ingestion ?<a class="headerlink" href="#what-is-data-ingestion" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Data ingestion is the process of obtaining and importing data for immediate use or storage in a database. To ingest something is to “take something in or absorb something.”
+<a class="reference external" href="https://whatis.techtarget.com/definition/data-ingestion">https://whatis.techtarget.com/definition/data-ingestion</a></p>
+</div></blockquote>
+<div class="section" id="in-short">
+<h3>In short<a class="headerlink" href="#in-short" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="https://miro.medium.com/max/500/0*kAOakOPohpvdqM4M" /></p>
+<p><a class="reference external" href="https://medium.com/ssense-tech/principled-data-engineering-part-i-architectural-overview-6d4bdf89b657">Source</a></p>
+</div>
+</div>
+<div class="section" id="a-market-perspective">
+<h2>A Market Perspective<a class="headerlink" href="#a-market-perspective" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="magic-quadrant-for-enterprise-integration-platform-as-a-service">
+<h2>Magic Quadrant for Enterprise Integration Platform as a Service<a class="headerlink" href="#magic-quadrant-for-enterprise-integration-platform-as-a-service" title="Permalink to this headline">¶</a></h2>
+<p>September 2020-2021
+<img alt="" src="_images/gartner-integration-as-service-2020.png" /></p>
+</div>
+<div class="section" id="informatica">
+<h2>Informatica<a class="headerlink" href="#informatica" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Cloud Mass Ingestion
+Efficiently ingest streaming big data, databases, and files with cloud-based services</p>
+</div></blockquote>
+<p><a class="reference external" href="https://www.informatica.com/it/products/cloud-integration/ingestion-at-scale.html">https://www.informatica.com/it/products/cloud-integration/ingestion-at-scale.html</a></p>
+</div>
+<div class="section" id="talend">
+<h2>Talend<a class="headerlink" href="#talend" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/data-ingestion.png" />
+<a class="reference external" href="https://www.talend.com/blog/2018/09/26/building-agile-data-lakes-with-robust-ingestion-and-transformation-frameworks-part-1/">https://www.talend.com/blog/2018/09/26/building-agile-data-lakes-with-robust-ingestion-and-transformation-frameworks-part-1/</a></p>
+<p><img alt="" src="https://i.imgflip.com/51lfae.jpg" /></p>
+<blockquote>
+<div><p>Last month Stitch became part of Talend. Talend is a global open source big data and cloud integration software company whose mission is “to make your data better, more trustworthy, and more available to drive business value.” That maps naturally to Stitch’s mission “to inspire and empower data-driven people.”</p>
+</div></blockquote>
+<p>Talend offers a wide range of products to complement Stitch’s frictionless SaaS ETL platform.</p>
+<p><a class="reference external" href="https://www.stitchdata.com/blog/introducing-talend/">https://www.stitchdata.com/blog/introducing-talend/</a></p>
+</div>
+<div class="section" id="analysis-ready-data-at-your-fingertips">
+<h2>Analysis-ready data at your fingertips<a class="headerlink" href="#analysis-ready-data-at-your-fingertips" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Stitch rapidly moves data from 130+ sources into a data warehouse so you can get to answers faster, no coding required.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://www.stitchdata.com/">https://www.stitchdata.com/</a></p>
+<p><img alt="" src="https://i.imgflip.com/51lgul.jpg" /></p>
+</div>
+<div class="section" id="data-ingestion-vs-data-integration">
+<h2>Data Ingestion vs Data Integration<a class="headerlink" href="#data-ingestion-vs-data-integration" title="Permalink to this headline">¶</a></h2>
+<p>Data ingestion is similar to, but distinct from, the concept of data integration, which seeks to integrate multiple data sources into a cohesive whole. With data integration, the sources may be entirely within your own systems; on the other hand, data ingestion suggests that at least part of the data is pulled from another location (e.g. a website, SaaS application, or external database).</p>
+<p><a class="reference external" href="https://www.xplenty.com/blog/data-ingestion-vs-etl/#:~:text=With%20data%20integration%2C%20the%20sources,application%2C%20or%20external%20database">https://www.xplenty.com/blog/data-ingestion-vs-etl/#:~:text=With data integration, the sources,application, or external database</a>).</p>
+<p><img alt="" src="https://i.imgflip.com/51n8l0.jpg" /></p>
+</div>
+<div class="section" id="let-s-see-on-quora">
+<h2>Let’s see on Quora<a class="headerlink" href="#let-s-see-on-quora" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.quora.com/What-is-the-difference-between-data-ingestion-and-data-integration-Are-these-terms-general-synonymous-or-do-they-refer-to-different-concepts">https://www.quora.com/What-is-the-difference-between-data-ingestion-and-data-integration-Are-these-terms-general-synonymous-or-do-they-refer-to-different-concepts</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="big-data-ingestion">
+<h1>Big Data Ingestion<a class="headerlink" href="#big-data-ingestion" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.xenonstack.com/blog/ingestion-processing-data-for-big-data-iot-solutions">https://www.xenonstack.com/blog/ingestion-processing-data-for-big-data-iot-solutions</a></p>
+<div class="section" id="big-data-ingestion-involves">
+<h2>Big Data Ingestion involves<a class="headerlink" href="#big-data-ingestion-involves" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connecting-to-various-data-sources">
+<h3>connecting to various data sources<a class="headerlink" href="#connecting-to-various-data-sources" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/griffinfirehose.gif" /></p>
+</div>
+<div class="section" id="extracting-the-data">
+<h3>extracting the data<a class="headerlink" href="#extracting-the-data" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/sevendrawfs.png" /></p>
+</div>
+<div class="section" id="detecting-changed-data">
+<h3>detecting changed data<a class="headerlink" href="#detecting-changed-data" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Scooby" src="_images/scooby.png" /></p>
+</div>
+</div>
+<div class="section" id="it-s-about-moving-data-and-especially-unstructured-data">
+<h2>It’s about moving data - and especially unstructured data -<a class="headerlink" href="#it-s-about-moving-data-and-especially-unstructured-data" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/awstruck.gif" /></p>
+<div class="section" id="from-where-it-is-originated">
+<h3>from where it is originated<a class="headerlink" href="#from-where-it-is-originated" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/batcave.jpg" /></p>
+</div>
+<div class="section" id="into-a-system-where-it-can-be-stored-and-analyzed">
+<h3>into a system where it can be stored and analyzed.<a class="headerlink" href="#into-a-system-where-it-can-be-stored-and-analyzed" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/lestrange.jpg" /></p>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-ingestion-is-the-beginning-of-data-pipeline-where-it-obtains-or-import-data-for-immediate-use">
+<h1>Data Ingestion is the beginning of Data Pipeline where it obtains or import data for immediate use.<a class="headerlink" href="#data-ingestion-is-the-beginning-of-data-pipeline-where-it-obtains-or-import-data-for-immediate-use" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="_images/datapipeline.jpg" /></p>
+<p>Data can be streamed in <strong>real time</strong> or ingested in <strong>batches</strong>,
+When data is ingested in <strong>real time</strong> then, as soon as data arrives it is ingested immediately.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="effective-data-ingestion-process-begins-by">
+<h1>Effective Data Ingestion process begins by<a class="headerlink" href="#effective-data-ingestion-process-begins-by" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prioritizing-data-sources">
+<h2>prioritizing data sources<a class="headerlink" href="#prioritizing-data-sources" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/prioritize.png" /></p>
+</div>
+<div class="section" id="validating-individual-files">
+<h2>validating individual files<a class="headerlink" href="#validating-individual-files" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/validation.png" /></p>
+</div>
+<div class="section" id="routing-data-items-to-the-correct-destination">
+<h2>routing data items to the correct destination<a class="headerlink" href="#routing-data-items-to-the-correct-destination" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="_images/vigile.png" /></p>
+</div>
+<div class="section" id="data-velocity">
+<h2>Data Velocity<a class="headerlink" href="#data-velocity" title="Permalink to this headline">¶</a></h2>
+<p>Data Velocity deals with the speed at which data flows in from different sources like machines, networks, human interaction, media sites, social media. The flow of data can be massive or continuous.</p>
+</div>
+<div class="section" id="data-size">
+<h2>Data Size<a class="headerlink" href="#data-size" title="Permalink to this headline">¶</a></h2>
+<p>Data size implies enormous volume of data. Data is generated by different sources that may increase timely.</p>
+</div>
+<div class="section" id="data-frequency-batch-real-time">
+<h2>Data Frequency (Batch, Real-Time)<a class="headerlink" href="#data-frequency-batch-real-time" title="Permalink to this headline">¶</a></h2>
+<p>Data can be processed in real time or batch, in real time processing as data received on same time, it further proceeds but in batch time data is stored in batches, fixed at some time interval and then further moved.</p>
+</div>
+<div class="section" id="data-format-structured-semi-structured-unstructured">
+<h2>Data Format (Structured, Semi-Structured, Unstructured)<a class="headerlink" href="#data-format-structured-semi-structured-unstructured" title="Permalink to this headline">¶</a></h2>
+<p>Data can be in different formats, mostly it can be structured format i.e. tabular one or unstructured format i.e. images, audios, videos or semi-structured i.e. JSON files, CSS files etc.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-ingestion-types">
+<h1>Data Ingestion Types<a class="headerlink" href="#data-ingestion-types" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="batch-micro-batch">
+<h1>Batch/Micro Batch<a class="headerlink" href="#batch-micro-batch" title="Permalink to this headline">¶</a></h1>
+<p>Batch Data Ingestion is about collect, upload and process data in steps.</p>
+<p><img alt="Assembly Line" src="_images/assemblyline.jpg" /></p>
+<p>Data are cumulated for an amount of time (or size) and then are ready to be processed.</p>
+<p><img alt="tip" src="_images/batch.png" /></p>
+<p>Can be any kind of data: log files, databases, structured or unstructured, text or binary.</p>
+<p><img alt="Multiple" src="_images/multipledatasources.png" /></p>
+<p>Can be big or small.</p>
+<p><img alt="Batch" src="_images/bigvssmall.jfif" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="real-time-streaming">
+<h1>Real Time / Streaming<a class="headerlink" href="#real-time-streaming" title="Permalink to this headline">¶</a></h1>
+<p>Stream data ingestion (or real time) is about sending, receiving and process a continuous flow of data</p>
+<p><img alt="data-stream" src="_images/data-stream-small.jpg" /></p>
+<p>Meanwhile data are ingested they are make available for (more then one) processing system</p>
+<p><img alt="ForbesData" src="_images/forbesdata.jpg" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="real-time-examples">
+<h1>Real Time Examples<a class="headerlink" href="#real-time-examples" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.omnisci.com/demos">https://www.omnisci.com/demos</a></p>
+<p><a class="reference external" href="https://www.octoboard.com/it/real-time-business-dashboard-live">https://www.octoboard.com/it/real-time-business-dashboard-live</a></p>
+<p><a class="reference external" href="https://www.pubnub.com/developers/realtime-data-streams/">https://www.pubnub.com/developers/realtime-data-streams/</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="applications-of-stream-processing">
+<h1>Applications of Stream Processing<a class="headerlink" href="#applications-of-stream-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="complex-event-processing">
+<h2>complex event processing<a class="headerlink" href="#complex-event-processing" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Complex_event_processing">https://en.wikipedia.org/wiki/Complex_event_processing</a></p>
+<p>Suppose we have</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=U8DeBlXCvZo"><img alt="" src="https://img.youtube.com/vi/U8DeBlXCvZo/0.jpg" /></a></p>
+<p><img alt="wedding" src="_images/wedding.jpg" /></p>
+<p>A monitoring system may for instance receive the following three from the same source:</p>
+<ul class="simple">
+<li><p>church bells ringing.</p></li>
+<li><p>the appearance of a man in a tuxedo with a woman in a flowing white gown.</p></li>
+<li><p>rice flying through the air</p></li>
+</ul>
+<p>From these events the monitoring system may infer a complex event: a wedding</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-ingestion-tools">
+<h1>Data Ingestion Tools<a class="headerlink" href="#data-ingestion-tools" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.predictiveanalyticstoday.com/data-ingestion-tools/">https://www.predictiveanalyticstoday.com/data-ingestion-tools/</a></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Docker%20-%20BYOC.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Docker Build Your Own Container</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Apache%20Flume.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Apache Flume</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

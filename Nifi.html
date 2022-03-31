@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apache Nifi &#8212; Techologies for Advanced Programming</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TAPIntroduction.html">
+   Technologies for advanced programming (TAP) - 2022
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker.html">
+   Docker Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker%20-%20BYOC.html">
+   Docker Build Your Own Container
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Ingestion.html">
+   Data Ingestion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Apache%20Flume.html">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logstash.html">
+   Logstash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fluentd.html">
+   Fluentd
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Nifi.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Nifi.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Apache Nifi
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture">
+     Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#origin">
+     Origin
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#it-s-all-about-dataflow">
+     It’s all about dataflow
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-some-high-level-challenges">
+     With some high-level challenges
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-try-it">
+     Let’s try it
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hello-twitter">
+     Hello Twitter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nifi-designs">
+   Nifi Designs
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Apache Nifi</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Apache Nifi
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture">
+     Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#origin">
+     Origin
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#it-s-all-about-dataflow">
+     It’s all about dataflow
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#with-some-high-level-challenges">
+     With some high-level challenges
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-try-it">
+     Let’s try it
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hello-twitter">
+     Hello Twitter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nifi-designs">
+   Nifi Designs
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="apache-nifi">
+<h1>Apache Nifi<a class="headerlink" href="#apache-nifi" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>An easy to use, powerful, and reliable system to process and distribute data</p>
+</div></blockquote>
+<p><img alt="" src="https://nifi.apache.org/assets/images/apache-nifi-logo.svg" /></p>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://nifi.apache.org/docs/nifi-docs/html/images/zero-leader-node.png" /></p>
+</div>
+<div class="section" id="origin">
+<h2>Origin<a class="headerlink" href="#origin" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Apache NiFi is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. Leveraging the concept of Extract, transform, load, it is based on the “NiagaraFiles” software previously developed by the US National Security Agency (NSA), which is also the source of a part of its present name – NiFi. It was open-sourced as a part of NSA’s technology transfer program in 2014</p>
+</div></blockquote>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Apache_NiFi">Wikipedia</a></p>
+<p>Hortonworks added in HDP platforms
+and now in Cloudera is still pitching
+(but maybe less)</p>
+<p><a class="reference external" href="https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html">https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html</a></p>
+</div>
+<div class="section" id="it-s-all-about-dataflow">
+<h2>It’s all about dataflow<a class="headerlink" href="#it-s-all-about-dataflow" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://www.cloudera.com/content/dam/www/marketing/images/diagrams/Apache-nifi-flow-.png" /></p>
+</div>
+<div class="section" id="with-some-high-level-challenges">
+<h2>With some high-level challenges<a class="headerlink" href="#with-some-high-level-challenges" title="Permalink to this headline">¶</a></h2>
+<p><strong>Systems fail</strong></p>
+<p>Networks fail, disks fail, software crashes, people make mistakes.</p>
+<p><strong>Data access exceeds capacity to consume</strong></p>
+<p>Sometimes a given data source can outpace some part of the processing or delivery chain - it only takes one weak-link to have an issue.</p>
+<p><strong>Boundary conditions are mere suggestions</strong></p>
+<p>You will invariably get data that is too big, too small, too fast, too slow, corrupt, wrong, or in the wrong format.</p>
+<p><strong>What is noise one day becomes signal the next</strong></p>
+<p>Priorities of an organization change - rapidly. Enabling new flows and changing existing ones must be fast.</p>
+<p><strong>Systems evolve at different rates</strong></p>
+<p>The protocols and formats used by a given system can change anytime and often irrespective of the systems around them. Dataflow exists to connect what is essentially a massively distributed system of components that are loosely or not-at-all designed to work together.</p>
+<p><strong>Compliance and security</strong></p>
+<p>Laws, regulations, and policies change. Business to business agreements change. System to system and system to user interactions must be secure, trusted, accountable.</p>
+<p><strong>Continuous improvement occurs in production</strong></p>
+<p>It is often not possible to come even close to replicating production environments in the lab.</p>
+</div>
+<div class="section" id="let-s-try-it">
+<h2>Let’s try it<a class="headerlink" href="#let-s-try-it" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i.imgflip.com/68fcn5.jpg" />
+<a class="reference external" href="https://imgflip.com/i/68fcn5">NicsMeme</a></p>
+<p><img alt="" src="https://i.imgflip.com/69cscf.jpg" />
+<a class="reference external" href="https://www.mail-archive.com/dev&#64;nifi.apache.org/msg20414.html">https://www.mail-archive.com/dev&#64;nifi.apache.org/msg20414.html</a></p>
+<p><a class="reference external" href="https://cwiki.apache.org/confluence/display/NIFI/NiFi+Docker+Container+Improvements">https://cwiki.apache.org/confluence/display/NIFI/NiFi+Docker+Container+Improvements</a></p>
+<p><a class="reference external" href="https://issues.apache.org/jira/browse/NIFI-9554">https://issues.apache.org/jira/browse/NIFI-9554</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --name nifi -p <span class="m">8443</span>:8443 -d apache/nifi:latest
+</pre></div>
+</div>
+<p><a class="reference external" href="https://hub.docker.com/r/apache/nifi">Nifi In Docker Hub</a></p>
+<p><img alt="" src="https://i.imgflip.com/51o75w.jpg" /></p>
+<p>Check Logs to get secrets</p>
+<p>Open the web UI <a class="reference external" href="https://localhost:8443/nifi/">https://localhost:8443/nifi/</a>
+<img alt="" src="_images/nifi.png" /></p>
+</div>
+<div class="section" id="hello-twitter">
+<h2>Hello Twitter<a class="headerlink" href="#hello-twitter" title="Permalink to this headline">¶</a></h2>
+<p>Inspired from</p>
+<p><a class="reference external" href="https://medium.com/&#64;moha.ajori/using-apache-nifi-to-load-tweets-from-twitter-api-to-memsql-19e19a3be20e">https://medium.com/&#64;moha.ajori/using-apache-nifi-to-load-tweets-from-twitter-api-to-memsql-19e19a3be20e</a></p>
+<p>Remember to check date (expecially in WSL) since Twitter API gives 401 if date is not correct!</p>
+<p><img alt="" src="_images/twitter.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nifi-designs">
+<h1>Nifi Designs<a class="headerlink" href="#nifi-designs" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.nifidesigns.com/">http://www.nifidesigns.com/</a></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluentd &#8212; Techologies for Advanced Programming</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Logstash" href="Logstash.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TAPIntroduction.html">
+   Technologies for advanced programming (TAP) - 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker.html">
+   Docker Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker%20-%20BYOC.html">
+   Docker Build Your Own Container
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Ingestion.html">
+   Data Ingestion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Apache%20Flume.html">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logstash.html">
+   Logstash
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Fluentd
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Fluentd.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Fluentd.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Fluentd
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-your-unified-logging-layer">
+   Build Your Unified Logging Layer
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluentd-is-an-open-source-data-collector-for-unified-logging-layer">
+     Fluentd is an open source data collector for unified logging layer.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fluentd-allows-you-to-unify-data-collection-and-consumption-for-a-better-use-and-understanding-of-data">
+       Fluentd allows you to unify data collection and consumption for a better use and understanding of data.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unified-logging-layer">
+       Unified Logging Layer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-yet-flexible">
+       Simple yet Flexible
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proven">
+       Proven
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-cases-and-how-to">
+   Use Cases and How To
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-cases">
+     Use cases
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-guides">
+     How To Guides
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log-data-is-for-machines">
+   Log data is for machines
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture">
+     Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#life-of-a-fluentd-event">
+     Life of a fluentd event
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#event-structure">
+       Event Structure
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configuration-file">
+       Configuration File
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#processing-events">
+       Processing Events
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plugin-types">
+     Plugin types
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fluent-bit">
+   Fluent Bit
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biblio">
+   Biblio
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fluentd</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Fluentd
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-your-unified-logging-layer">
+   Build Your Unified Logging Layer
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluentd-is-an-open-source-data-collector-for-unified-logging-layer">
+     Fluentd is an open source data collector for unified logging layer.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fluentd-allows-you-to-unify-data-collection-and-consumption-for-a-better-use-and-understanding-of-data">
+       Fluentd allows you to unify data collection and consumption for a better use and understanding of data.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unified-logging-layer">
+       Unified Logging Layer
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-yet-flexible">
+       Simple yet Flexible
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proven">
+       Proven
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-cases-and-how-to">
+   Use Cases and How To
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-cases">
+     Use cases
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-guides">
+     How To Guides
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log-data-is-for-machines">
+   Log data is for machines
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture">
+     Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#life-of-a-fluentd-event">
+     Life of a fluentd event
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#event-structure">
+       Event Structure
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configuration-file">
+       Configuration File
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#processing-events">
+       Processing Events
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plugin-types">
+     Plugin types
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fluent-bit">
+   Fluent Bit
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biblio">
+   Biblio
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fluentd">
+<h1>Fluentd<a class="headerlink" href="#fluentd" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="build-your-unified-logging-layer">
+<h1>Build Your Unified Logging Layer<a class="headerlink" href="#build-your-unified-logging-layer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fluentd-is-an-open-source-data-collector-for-unified-logging-layer">
+<h2>Fluentd is an open source data collector for unified logging layer.<a class="headerlink" href="#fluentd-is-an-open-source-data-collector-for-unified-logging-layer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fluentd-allows-you-to-unify-data-collection-and-consumption-for-a-better-use-and-understanding-of-data">
+<h3>Fluentd allows you to unify data collection and consumption for a better use and understanding of data.<a class="headerlink" href="#fluentd-allows-you-to-unify-data-collection-and-consumption-for-a-better-use-and-understanding-of-data" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="https://www.fluentd.org/images/fluentd-website-banner-n.jpg" />
+<a class="reference external" href="https://www.fluentd.org">www.fluentd.org</a></p>
+</div>
+<div class="section" id="unified-logging-layer">
+<h3>Unified Logging Layer<a class="headerlink" href="#unified-logging-layer" title="Permalink to this headline">¶</a></h3>
+<p>Fluentd decouples data sources from backend systems by providing a unified logging layer in between.</p>
+<p><img alt="" src="https://www.fluentd.org/images/fluentd-architecture.png" /></p>
+</div>
+<div class="section" id="simple-yet-flexible">
+<h3>Simple yet Flexible<a class="headerlink" href="#simple-yet-flexible" title="Permalink to this headline">¶</a></h3>
+<p>Fluentd’s 500+ <a class="reference external" href="https://www.fluentd.org/plugins/all#input-output">plugins</a>
+connect it to many data sources and outputs while keeping its core simple.</p>
+<p>Plugins are written in Ruby and hosted in rubygems</p>
+<p><img alt="" src="http://fredericiana.com/media/wp/2012/05/rubygems.jpg" />
+<a class="reference external" href="http://fredericiana.com/2012/05/24/meme-ruby-gems/">Source</a></p>
+</div>
+<div class="section" id="proven">
+<h3>Proven<a class="headerlink" href="#proven" title="Permalink to this headline">¶</a></h3>
+<p>5,000+ data-driven companies rely on Fluentd. Its largest user currently collects logs from 50,000+ servers.
+<a class="reference external" href="https://www.fluentd.org/testimonials">Testimonials</a></p>
+<p><img alt="" src="https://www.fluentd.org/images/cncf.png" /></p>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="use-cases-and-how-to">
+<h1>Use Cases and How To<a class="headerlink" href="#use-cases-and-how-to" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="use-cases">
+<h2>Use cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.fluentd.org/quickstart#step-2-use-cases">https://docs.fluentd.org/quickstart#step-2-use-cases</a></p>
+</div>
+<div class="section" id="how-to-guides">
+<h2>How To Guides<a class="headerlink" href="#how-to-guides" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.fluentd.org/how-to-guides">https://docs.fluentd.org/how-to-guides</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="log-data-is-for-machines">
+<h1>Log data is for machines<a class="headerlink" href="#log-data-is-for-machines" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="https://www.fluentd.org/images/blog/unified-logging-machine-to-machine.png" />
+<a class="reference external" href="https://www.fluentd.org/blog/unified-logging-layer">https://www.fluentd.org/blog/unified-logging-layer</a></p>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Architecture" src="https://www.fluentd.org/images/architecture/pluggable.png" /></p>
+</div>
+<div class="section" id="life-of-a-fluentd-event">
+<h2>Life of a fluentd event<a class="headerlink" href="#life-of-a-fluentd-event" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="event-structure">
+<h3>Event Structure<a class="headerlink" href="#event-structure" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>tag: Specifies the origin where an event comes from. It is used for
+message routing.</p></li>
+<li><p>time: Specifies the time when an event happens with nanosecond resolution.</p></li>
+<li><p>record: Specifies the actual log as a JSON object.</p></li>
+</ul>
+<p><img alt="" src="https://drek4537l1klr.cloudfront.net/wilkins/v-10/Figures/2.1.png" /></p>
+<p><a class="reference external" href="https://livebook.manning.com/book/logging-in-action/chapter-2/v-10/14">https://livebook.manning.com/book/logging-in-action/chapter-2/v-10/14</a></p>
+</div>
+<div class="section" id="configuration-file">
+<h3>Configuration File<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>The configuration file is the fundamental piece to connect all things together, as it allows to define which Inputs or listeners Fluentd will have and set up common matching rules to route the Event data to a specific Output.</p>
+<div class="highlight-config notranslate"><div class="highlight"><pre><span></span>&lt;source&gt;
+  @type http
+  port 44444
+  bind 0.0.0.0
+&lt;/source&gt;
+
+# accept all log events regardless of tag and write them to the console
+&lt;match **&gt;
+    @type stdout
+&lt;/match&gt;
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker run -p 44444:44444 -v $(pwd)/conf:/fluentd/etc fluent/fluentd:edge-debian -c /fluentd/etc/helloworld.conf
+curl -X POST -d &#39;json={&quot;json&quot;:&quot;message&quot;}&#39; http://127.0.0.1:44444/sample.test
+</pre></div>
+</div>
+</div>
+<div class="section" id="processing-events">
+<h3>Processing Events<a class="headerlink" href="#processing-events" title="Permalink to this headline">¶</a></h3>
+<p>When a Setup is defined, the Router Engine contains several predefined rules to apply to different input data. Internally, an Event will to pass through a chain of procedures that may alter its lifecycle.</p>
+</div>
+</div>
+<div class="section" id="plugin-types">
+<h2>Plugin types<a class="headerlink" href="#plugin-types" title="Permalink to this headline">¶</a></h2>
+<p>Fluentd has nine (9) types of plugins:</p>
+<ul class="simple">
+<li><p>Input</p></li>
+<li><p>Parser</p></li>
+<li><p>Filter</p></li>
+<li><p>Output</p></li>
+<li><p>Formatter</p></li>
+<li><p>Storage</p></li>
+<li><p>Service Discovery</p></li>
+<li><p>Buffer</p></li>
+<li><p>Metrics</p></li>
+</ul>
+<p><a class="reference external" href="https://docs.fluentd.org/input">https://docs.fluentd.org/input</a></p>
+<p><img alt="" src="https://ithemes.com/wp-content/uploads/2017/05/what-is-a-plugin.png" /></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="fluent-bit">
+<h1>Fluent Bit<a class="headerlink" href="#fluent-bit" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://fluentbit.io/">https://fluentbit.io/</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="biblio">
+<h1>Biblio<a class="headerlink" href="#biblio" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.manning.com/books/logging-in-action">https://www.manning.com/books/logging-in-action</a></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Logstash.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Logstash</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

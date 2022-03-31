@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker Build Your Own Container &#8212; Techologies for Advanced Programming</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Ingestion" href="Data%20Ingestion.html" />
+    <link rel="prev" title="Docker Introduction" href="Docker.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TAPIntroduction.html">
+   Technologies for advanced programming (TAP) - 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker.html">
+   Docker Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Docker Build Your Own Container
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Ingestion.html">
+   Data Ingestion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Apache%20Flume.html">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logstash.html">
+   Logstash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fluentd.html">
+   Fluentd
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Docker - BYOC.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Docker - BYOC.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-start-with-an-example">
+   Let’s start with an example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#node-bulletin">
+     Node Bulletin
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-see-the-docker-file">
+     Let’s see the Docker File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-image">
+     Build Image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-your-image-as-a-container">
+   Run your image as a container
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-running">
+   Is running ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-we-are-running">
+   What we are running ?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-it">
+     Delete it
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-your-self">
+   Try your self
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dockerfile">
+   DockerFile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-syntax">
+   Build syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format">
+     Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from">
+     FROM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arg">
+     ARG
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#env">
+   ENV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-shell-mode">
+   RUN (shell mode)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-exec-mode">
+   RUN (exec mode)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmd-exec-form">
+   CMD (exec form)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmd-shell-form">
+   CMD (shell form)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confused">
+     Confused ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entrypoint-exec-form">
+     ENTRYPOINT (exec form)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expose">
+   EXPOSE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add">
+   ADD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copy">
+   COPY
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#volume">
+   VOLUME
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workdir">
+   WORKDIR
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-practices">
+     Best Practices
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cheat-sheet">
+     Cheat Sheet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-commit">
+     Docker Commit
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Docker Build Your Own Container</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-start-with-an-example">
+   Let’s start with an example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#node-bulletin">
+     Node Bulletin
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-see-the-docker-file">
+     Let’s see the Docker File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-image">
+     Build Image
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-your-image-as-a-container">
+   Run your image as a container
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-running">
+   Is running ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-we-are-running">
+   What we are running ?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-it">
+     Delete it
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-your-self">
+   Try your self
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dockerfile">
+   DockerFile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-syntax">
+   Build syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#format">
+     Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#from">
+     FROM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arg">
+     ARG
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#env">
+   ENV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-shell-mode">
+   RUN (shell mode)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-exec-mode">
+   RUN (exec mode)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmd-exec-form">
+   CMD (exec form)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmd-shell-form">
+   CMD (shell form)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confused">
+     Confused ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entrypoint-exec-form">
+     ENTRYPOINT (exec form)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expose">
+   EXPOSE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add">
+   ADD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copy">
+   COPY
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#volume">
+   VOLUME
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#workdir">
+   WORKDIR
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#best-practices">
+     Best Practices
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cheat-sheet">
+     Cheat Sheet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-commit">
+     Docker Commit
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="docker-build-your-own-container">
+<h1>Docker Build Your Own Container<a class="headerlink" href="#docker-build-your-own-container" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="https://i.ytimg.com/vi/FgFQA8sr8EM/maxresdefault.jpg" /></p>
+<div class="section" id="let-s-start-with-an-example">
+<h2>Let’s start with an example<a class="headerlink" href="#let-s-start-with-an-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="node-bulletin">
+<h3>Node Bulletin<a class="headerlink" href="#node-bulletin" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+git clone https://github.com/dockersamples/node-bulletin-board
+cd node-bulletin-board/bulletin-board-app
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-see-the-docker-file">
+<h3>Let’s see the Docker File<a class="headerlink" href="#let-s-see-the-docker-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">node:current-slim</span>
+
+<span class="k">WORKDIR</span><span class="s"> /usr/src/app</span>
+<span class="k">COPY</span> package.json .
+<span class="k">RUN</span> npm install
+
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+<span class="k">CMD</span> <span class="p">[</span> <span class="s2">&quot;npm&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span> <span class="p">]</span>
+
+<span class="k">COPY</span> . .
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-image">
+<h3>Build Image<a class="headerlink" href="#build-image" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+docker image build -t bulletinboard:1.0 .
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sending build context to Docker daemon  45.57kB
+
+Step 1/7 : FROM node:current-slim
+current-slim: Pulling from library/node
+6d28e14ab8c8: Pulling fs layer
+467f76cd7b76: Pulling fs layer
+5267769fc2ec: Pulling fs layer
+0001c8b9bd2f: Pulling fs layer
+2469aef99d27: Pulling fs layer
+0001c8b9bd2f: Waiting
+2469aef99d27: Waiting
+467f76cd7b76: Verifying Checksum
+6d28e14ab8c8: Verifying Checksum
+6d28e14ab8c8: Download complete
+0001c8b9bd2f: Verifying Checksum
+2469aef99d27: Verifying Checksum
+2469aef99d27: Download complete
+6d28e14ab8c8: Pull complete
+467f76cd7b76: Pull complete
+5267769fc2ec: Verifying Checksum
+5267769fc2ec: Download complete
+5267769fc2ec: Pull complete
+0001c8b9bd2f: Pull complete
+2469aef99d27: Pull complete
+Digest: sha256:1d54d3263d04bbf017ec705b7d4418a71b63d0696cabc0fcc77a1167e346dcb9
+Status: Downloaded newer image for node:current-slim
+ ---&gt; 26932a190e66
+Step 2/7 : WORKDIR /usr/src/app
+ ---&gt; Running in 2894363bc740
+Removing intermediate container 2894363bc740
+ ---&gt; a87873d56853
+Step 3/7 : COPY package.json .
+ ---&gt; 61330eb565b1
+Step 4/7 : RUN npm install
+ ---&gt; Running in c6082f3c0985
+
+&gt; ejs@2.7.4 postinstall /usr/src/app/node_modules/ejs
+&gt; node ./postinstall.js
+
+Thank you for installing <span class=" -Color -Color-Magenta">EJS</span>: built with the <span class=" -Color -Color-Green">Jake</span> JavaScript build tool (<span class=" -Color -Color-Green">https://jakejs.com/</span>)
+
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN vue-event-bulletin@1.0.0 No repository field.
+npm WARN The package morgan is included as both a dev and production dependency.
+
+added 90 packages from 168 contributors and audited 221 packages in 5.577s
+found 0 vulnerabilities
+
+Removing intermediate container c6082f3c0985
+ ---&gt; 7aaab7eabaab
+Step 5/7 : EXPOSE 8080
+ ---&gt; Running in b8ebdaa7090c
+Removing intermediate container b8ebdaa7090c
+ ---&gt; 107b471a8144
+Step 6/7 : CMD [ &quot;npm&quot;, &quot;start&quot; ]
+ ---&gt; Running in 74afb99c6891
+Removing intermediate container 74afb99c6891
+ ---&gt; 7d44df2514d3
+Step 7/7 : COPY . .
+ ---&gt; b54f475b5ea8
+Successfully built b54f475b5ea8
+Successfully tagged bulletinboard:1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="run-your-image-as-a-container">
+<h2>Run your image as a container<a class="headerlink" href="#run-your-image-as-a-container" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+docker container run --publish 8000:8080 --detach --name bb tapbulletinboard:1.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14e8c34595b28d0a194a3c8f5d53f1cd07051411d8110d88f81cf8e98a831362
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="is-running">
+<h2>Is running ?<a class="headerlink" href="#is-running" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+docker ps
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CONTAINER ID   IMAGE                  COMMAND                  CREATED         STATUS         PORTS                    NAMES
+db9ff52b012b   tapbulletinboard:1.0   &quot;docker-entrypoint.s…&quot;   3 minutes ago   Up 3 minutes   0.0.0.0:8000-&gt;8080/tcp   bb
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-we-are-running">
+<h2>What we are running ?<a class="headerlink" href="#what-we-are-running" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://localhost:8000">ClickToSee</a></p>
+<div class="section" id="delete-it">
+<h3>Delete it<a class="headerlink" href="#delete-it" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+docker container rm --force bb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bb
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="try-your-self">
+<h2>Try your self<a class="headerlink" href="#try-your-self" title="Permalink to this headline">¶</a></h2>
+<p>Go to <a class="reference external" href="https://github.com/dockersamples/">Docker Sample</a></p>
+<p>Choose an example and try to run it</p>
+</div>
+<div class="section" id="dockerfile">
+<h2>DockerFile<a class="headerlink" href="#dockerfile" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i.imgflip.com/50yk9z.jpg" /></p>
+<p><a class="reference external" href="https://imgflip.com/i/50yk9z">NicsMeme</a> insipired by <a class="reference external" href="https://codefresh.io/containers/docker-anti-patterns/">Docker Anti Patterns</a></p>
+</div>
+<div class="section" id="build-syntax">
+<h2>Build syntax<a class="headerlink" href="#build-syntax" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker build -f /path/to/a/Dockerfile
+</pre></div>
+</div>
+<div class="section" id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="c"># Comment</span>
+INSTRUCTION arguments
+</pre></div>
+</div>
+<p><em>Convention: instructions are in UPPER case</em></p>
+</div>
+<div class="section" id="from">
+<h3>FROM<a class="headerlink" href="#from" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>First instruction after comments/parser directives/arg</p></li>
+<li><p>Indicates the Image source (download from the registry)</p></li>
+<li><p>Can use ARG parameter</p></li>
+<li><p>it’s your baby!</p></li>
+</ul>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">[--platform=&lt;platform&gt;]</span> &lt;image&gt;<span class="o">[</span>:&lt;tag&gt;<span class="o">]</span> <span class="o">[</span>AS &lt;name&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#from">https://docs.docker.com/engine/reference/builder/#from</a></p>
+<p><img alt="" src="_images/babyboss.png" /></p>
+</div>
+<div class="section" id="arg">
+<h3>ARG<a class="headerlink" href="#arg" title="Permalink to this headline">¶</a></h3>
+<p>Define enviroment variabile used in the Builder</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">ARG</span> &lt;name&gt;<span class="o">[=</span>&lt;default value&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>Argument can be used in DockerFile FROM, RUN, …
+also passed during the BUILD</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker build --build-arg <span class="nv">user</span><span class="o">=</span>what_user 
+</pre></div>
+</div>
+<p>ARG are referenced using standard ${VARIABLE} notation</p>
+<p>Be careful with ARG</p>
+<ul class="simple">
+<li><p>scope starts from the line where is defined</p></li>
+<li><p>ENV wins on ARG in RUN</p></li>
+<li><p>There are a set of predefined ARG (like HTTP_PROXY)</p></li>
+<li><p>Don’t pass secret in ARG</p></li>
+</ul>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#arg">https://docs.docker.com/engine/reference/builder/#arg</a></p>
+<p><img alt="" src="_images/arguments-penauts.png" /></p>
+</div>
+</div>
+<div class="section" id="env">
+<h2>ENV<a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h2>
+<p>Define enviroment variabile that <em>persist</em> in the container</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">ENV</span> &lt;key&gt; &lt;value&gt;
+<span class="k">ENV</span> &lt;key&gt;<span class="o">=</span>&lt;value&gt; ...
+</pre></div>
+</div>
+<p>Enviroment variable can be also passed while starting</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -e <span class="s2">&quot;deep=purple&quot;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#env">https://docs.docker.com/engine/reference/builder/#env</a></p>
+<p><img alt="" src="_images/wikipedia-env-variable.png" /></p>
+</div>
+<div class="section" id="run-shell-mode">
+<h2>RUN (shell mode)<a class="headerlink" href="#run-shell-mode" title="Permalink to this headline">¶</a></h2>
+<p>Execute commands in the <em>layer</em> on top of the current image</p>
+<p>(shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows)</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> &lt;command&gt;
+</pre></div>
+</div>
+<p>The default shell for the shell form can be changed using the SHELL command.</p>
+<p>In the shell form you can use a \ (backslash) to continue a single RUN instruction onto the next line. For example, consider these two lines:</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> /bin/bash -c <span class="s1">&#39;source $HOME/.bashrc; \</span>
+<span class="s1">echo $HOME&#39;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#env">https://docs.docker.com/engine/reference/builder/#env</a></p>
+<p><img alt="" src="_images/docker-layers.png" /></p>
+</div>
+<div class="section" id="run-exec-mode">
+<h2>RUN (exec mode)<a class="headerlink" href="#run-exec-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="o">[</span><span class="s2">&quot;executable&quot;</span>, <span class="s2">&quot;param1&quot;</span>, <span class="s2">&quot;param2&quot;</span><span class="o">]</span> <span class="o">(</span><span class="nb">exec</span> form<span class="o">)</span>
+</pre></div>
+</div>
+<p>Unlike the shell form, the exec form does not invoke a command shell. This means that normal shell processing does not happen.</p>
+<blockquote>
+<div><p>To use a different shell, other than ‘/bin/sh’, use the exec form passing in the desired shell. For example,</p>
+</div></blockquote>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="o">[</span><span class="s2">&quot;/bin/bash&quot;</span>, <span class="s2">&quot;-c&quot;</span>, <span class="s2">&quot;echo hello&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">RUN</span> <span class="pre">[</span> <span class="pre">&quot;echo&quot;,</span> <span class="pre">&quot;$HOME&quot;</span> <span class="pre">]</span></code> will not do variable substitution on $HOME. If you want shell processing then either use the shell form or execute a shell directly, for example:</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">RUN</span> <span class="o">[</span> <span class="s2">&quot;sh&quot;</span>, <span class="s2">&quot;-c&quot;</span>, <span class="s2">&quot;echo </span><span class="nv">$HOME</span><span class="s2">&quot;</span> <span class="o">]</span>. 
+</pre></div>
+</div>
+<blockquote>
+<div><p>The exec form is parsed as a JSON array, which means that you must use double-quotes (“) around words not single-quotes (‘).</p>
+</div></blockquote>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#run">https://docs.docker.com/engine/reference/builder/#run</a></p>
+<p><img alt="" src="_images/docker-images.png" /></p>
+</div>
+<div class="section" id="cmd-exec-form">
+<h2>CMD (exec form)<a class="headerlink" href="#cmd-exec-form" title="Permalink to this headline">¶</a></h2>
+<p>The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.</p>
+<p>Exec form, this is the preferred form</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;executable&quot;</span><span class="p">,</span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="s2">&quot;param2&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+<p>Like RUN exec form do not invoke a shell, so in order to force the variabile substituion done by shell use</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">CMD</span> <span class="p">[</span> <span class="s2">&quot;sh&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;echo $HOME&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#env">https://docs.docker.com/engine/reference/builder/#env</a></p>
+</div>
+<div class="section" id="cmd-shell-form">
+<h2>CMD (shell form)<a class="headerlink" href="#cmd-shell-form" title="Permalink to this headline">¶</a></h2>
+<p>The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">CMD</span> <span class="nb">command</span> param1 param2
+</pre></div>
+</div>
+<p>If you want to run your <command> without a shell then you must express the command as a JSON array and give the full path to the executable. This array form is the preferred format of CMD. Any additional parameters must be individually expressed as strings in the array:</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">ubuntu</span>
+<span class="k">CMD</span> <span class="nb">echo</span> <span class="s2">&quot;This is a test.&quot;</span> <span class="p">|</span> wc -l
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a></p>
+<p><img alt="" src="_images/gandalf-docker-cmd.png" /></p>
+<div class="section" id="confused">
+<h3>Confused ?<a class="headerlink" href="#confused" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>RUN actually runs a command and commits the result</p></li>
+<li><p>CMD does not execute anything at build time, but specifies the intended command for the image.</p></li>
+</ul>
+</div>
+<div class="section" id="entrypoint-exec-form">
+<h3>ENTRYPOINT (exec form)<a class="headerlink" href="#entrypoint-exec-form" title="Permalink to this headline">¶</a></h3>
+<p>An <code class="docutils literal notranslate"><span class="pre">ENTRYPOINT</span></code> allows you to configure a container that will run as an executable.</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&quot;executable&quot;</span><span class="p">,</span> <span class="s2">&quot;param1&quot;</span><span class="p">,</span> <span class="s2">&quot;param2&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -i -t --rm -p <span class="m">80</span>:80 nginx
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#entrypoint">https://docs.docker.com/engine/reference/builder/#entrypoint</a></p>
+</div>
+</div>
+<div class="section" id="expose">
+<h2>EXPOSE<a class="headerlink" href="#expose" title="Permalink to this headline">¶</a></h2>
+<p>Define enviroment variabile that <em>persist</em> in the container</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">EXPOSE</span><span class="s"> &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</span>
+</pre></div>
+</div>
+<p>The EXPOSE instruction does not actually publish the port.</p>
+<p>It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published.</p>
+<p>To actually publish the port when running the container, use the -p flag on docker run to publish and map one or more ports, or the -P flag to publish all exposed ports and map them to high-order ports.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -p <span class="m">80</span>:80/tcp -p <span class="m">80</span>:80/udp 
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#expose">https://docs.docker.com/engine/reference/builder/#expose</a></p>
+</div>
+<div class="section" id="add">
+<h2>ADD<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h2>
+<p>The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">ADD</span> <span class="o">[</span>--chown<span class="o">=</span>&lt;user&gt;:&lt;group&gt;<span class="o">]</span> &lt;src&gt;... &lt;dest&gt;
+<span class="k">ADD</span> <span class="o">[</span>--chown<span class="o">=</span>&lt;user&gt;:&lt;group&gt;<span class="o">]</span> <span class="o">[</span><span class="s2">&quot;&lt;src&gt;&quot;</span>,... <span class="s2">&quot;&lt;dest&gt;&quot;</span><span class="o">]</span> <span class="o">(</span>this form is required <span class="k">for</span> paths containing whitespace<span class="o">)</span>
+</pre></div>
+</div>
+<p>The <dest> is an absolute path, or a path relative to WORKDIR, into which the source will be copied inside the destination container.</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">ADD</span> <span class="nb">test</span> relativeDir/          # adds <span class="s2">&quot;test&quot;</span> to <span class="sb">`</span>WORKDIR<span class="sb">`</span>/relativeDir/
+<span class="k">ADD</span> <span class="nb">test</span> /absoluteDir/         # adds <span class="s2">&quot;test&quot;</span> to /absoluteDir/
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#add">https://docs.docker.com/engine/reference/builder/#add</a></p>
+</div>
+<div class="section" id="copy">
+<h2>COPY<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h2>
+<p>The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">COPY</span> <span class="o">[</span>--chown<span class="o">=</span>&lt;user&gt;:&lt;group&gt;<span class="o">]</span> &lt;src&gt;... &lt;dest&gt;
+<span class="k">COPY</span> <span class="o">[</span>--chown<span class="o">=</span>&lt;user&gt;:&lt;group&gt;<span class="o">]</span> <span class="o">[</span><span class="s2">&quot;&lt;src&gt;&quot;</span>,... <span class="s2">&quot;&lt;dest&gt;&quot;</span><span class="o">]</span> <span class="o">(</span>this form is required <span class="k">for</span> paths containing whitespace<span class="o">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/docker-copy-add-meme.png" /></p>
+</div>
+<div class="section" id="volume">
+<h2>VOLUME<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<p>The VOLUME instruction creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.r</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&quot;/data&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The docker run command initializes the newly created volume with any data that exists at the specified location within the base image. For example, consider the following Dockerfile snippet:</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">ubuntu</span>
+<span class="k">RUN</span> mkdir /myvol
+<span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&quot;hello world&quot;</span> &gt; /myvol/greeting
+<span class="k">VOLUME</span><span class="s"> /myvol```</span>
+
+This Dockerfile results <span class="k">in</span> an image that causes docker run to create a new mount point at /myvol and copy the greeting file into the newly created volume.
+
+https://docs.docker.com/engine/reference/builder/#env
+</pre></div>
+</div>
+</div>
+<div class="section" id="workdir">
+<h2>WORKDIR<a class="headerlink" href="#workdir" title="Permalink to this headline">¶</a></h2>
+<p>Define enviroment variabile that <em>persist</em> in the container</p>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">WORKDIR</span><span class="s"> /path/to/workdir</span>
+</pre></div>
+</div>
+<p>The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>WORKDIR /a
+WORKDIR b
+WORKDIR c
+RUN <span class="nb">pwd</span>
+</pre></div>
+</div>
+<p>The output of the final pwd command in this Dockerfile would be /a/b/c.</p>
+<p><a class="reference external" href="https://docs.docker.com/engine/reference/builder/#env">https://docs.docker.com/engine/reference/builder/#env</a></p>
+<div class="section" id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">https://docs.docker.com/develop/develop-images/dockerfile_best-practices/</a></p>
+</div>
+<div class="section" id="cheat-sheet">
+<h3>Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index">https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wsargent/docker-cheat-sheet">https://github.com/wsargent/docker-cheat-sheet</a></p></li>
+<li><p><a class="reference external" href="https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf">https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf</a></p></li>
+</ul>
+</div>
+<div class="section" id="docker-commit">
+<h3>Docker Commit<a class="headerlink" href="#docker-commit" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://medium.com/&#64;lizrice/to-commit-or-not-to-commit-5ab72f9a466e">To commit or not to commit?</a></p>
+<p><strong>Don’t do it.</strong></p>
+<p>No, really, I know it’s tempting, but if you’re ever going to use this container image again, don’t use commit. There are significant downsides to the commit approach:</p>
+<ul class="simple">
+<li><p>You can’t reproduce the image</p></li>
+<li><p>You can’t change the base image</p></li>
+</ul>
+<p>Creating a Dockerfile might feel a bit like work, but if you might want this image again, it’s the approach you need to take.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Docker.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Docker Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Data%20Ingestion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Ingestion</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

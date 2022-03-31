@@ -1,0 +1,1824 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apache Flume &#8212; Techologies for Advanced Programming</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logstash" href="Logstash.html" />
+    <link rel="prev" title="Data Ingestion" href="Data%20Ingestion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/UniCT-Logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Techologies for Advanced Programming</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TAPIntroduction.html">
+   Technologies for advanced programming (TAP) - 2022
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker.html">
+   Docker Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Docker%20-%20BYOC.html">
+   Docker Build Your Own Container
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Ingestion.html">
+   Data Ingestion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Logstash.html">
+   Logstash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fluentd.html">
+   Fluentd
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Apache Flume.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Apache Flume.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-flow">
+   Data Flow
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#event">
+   Event
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source">
+   Source
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#channel">
+   Channel
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sink">
+   Sink
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agent">
+   Agent
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration">
+     Configuration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker">
+   Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dockerfile">
+   Dockerfile
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapper">
+   Wrapper
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-hello-world">
+   Flume Hello World
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-serialization">
+   Data Serialization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-serialization">
+   Types of Serialization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#popular">
+     Popular
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary">
+     Binary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#big-data">
+     Big Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#avro">
+   Avro
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-source">
+   Flume Source
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Avro
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exec">
+   Exec
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#twitter-firehose">
+   Twitter Firehose
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-sources">
+   Other Sources
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-channels">
+   Flume Channels
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#memory">
+   Memory
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jdbc">
+   JDBC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kafka">
+   Kafka
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file">
+   File
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#others">
+   Others
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hdfs">
+   HDFS
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#start-hadoop-in-docker">
+   Start Hadoop in Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-sinks">
+   Flume Sinks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hfds">
+   HFDS
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escape-sequences">
+   Escape Sequences
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Configuration
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-netcat-hdfs">
+   Demo Netcat - Hdfs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logger">
+   Logger
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-roll">
+   File Roll
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elastic-search">
+   Elastic Search
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kafka-sync">
+   Kafka Sync
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-sinks">
+   Other Sinks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo">
+   Demo
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-apache">
+   Demo Apache
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-twitter">
+   Demo Twitter
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-flume-a-good-for-your-problem">
+   Is Flume a good for your problem ?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Apache Flume</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Apache Flume
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-flow">
+   Data Flow
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#event">
+   Event
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source">
+   Source
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#channel">
+   Channel
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sink">
+   Sink
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agent">
+   Agent
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuration">
+     Configuration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#docker">
+   Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dockerfile">
+   Dockerfile
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapper">
+   Wrapper
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-hello-world">
+   Flume Hello World
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-serialization">
+   Data Serialization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-serialization">
+   Types of Serialization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#popular">
+     Popular
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binary">
+     Binary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#big-data">
+     Big Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#avro">
+   Avro
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-source">
+   Flume Source
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Avro
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exec">
+   Exec
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#twitter-firehose">
+   Twitter Firehose
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-sources">
+   Other Sources
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-channels">
+   Flume Channels
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#memory">
+   Memory
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jdbc">
+   JDBC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kafka">
+   Kafka
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file">
+   File
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#others">
+   Others
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hdfs">
+   HDFS
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#start-hadoop-in-docker">
+   Start Hadoop in Docker
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flume-sinks">
+   Flume Sinks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hfds">
+   HFDS
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escape-sequences">
+   Escape Sequences
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Configuration
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-netcat-hdfs">
+   Demo Netcat - Hdfs
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logger">
+   Logger
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-roll">
+   File Roll
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elastic-search">
+   Elastic Search
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kafka-sync">
+   Kafka Sync
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-sinks">
+   Other Sinks
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo">
+   Demo
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-apache">
+   Demo Apache
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-twitter">
+   Demo Twitter
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-flume-a-good-for-your-problem">
+   Is Flume a good for your problem ?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="apache-flume">
+<h1>Apache Flume<a class="headerlink" href="#apache-flume" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="https://flume.apache.org/_static/flume-logo.png" /></p>
+<p>Apache Flume is a</p>
+<ul class="simple">
+<li><p><em>distributed</em>: multiple agents manage multiple sources and sinks</p></li>
+</ul>
+<ul class="simple">
+<li><p>reliable: events are staged in the channel and delivered using a transactional approach</p></li>
+</ul>
+<ul class="simple">
+<li><p>available: open source, mature</p></li>
+</ul>
+<p>system</p>
+<p>for efficiently:</p>
+<ul class="simple">
+<li><p>collecting: make them avalaible</p></li>
+</ul>
+<ul class="simple">
+<li><p>aggregating: merge together from different sources</p></li>
+</ul>
+<ul class="simple">
+<li><p>moving: transfer from one place to another</p></li>
+</ul>
+<p>large amounts of log data: i.e. able to manage big data</p>
+<p>from many different sources: refered both type of data and different place</p>
+<p>to a centralized data store</p>
+<p>The use of Apache Flume is not only restricted to log data aggregation.</p>
+<p>Since data sources are customizable, Flume can be used to transport massive quantities of event data including but not limited to:</p>
+<ul class="simple">
+<li><p>network traffic data</p></li>
+<li><p>social-media-generated data</p></li>
+<li><p>email messages</p></li>
+</ul>
+<p>and pretty much any data source possible</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-flow">
+<h1>Data Flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="_images/flume-dataflow.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="event">
+<h1>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h1>
+<p>A Flume event is defined as a unit of data flow having a byte payload and an optional set of string attributes</p>
+<p><img alt="" src="_images/flume-event.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="source">
+<h1>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h1>
+<p>A Flume source consumes events delivered to it by an external source like a web server.</p>
+<p>The external source sends events to Flume in a format that is recognized by the target Flume source.</p>
+<p>Sources can be pollable or event driven</p>
+<p><img alt="" src="_images/flume-source.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="channel">
+<h1>Channel<a class="headerlink" href="#channel" title="Permalink to this headline">¶</a></h1>
+<p>When a Flume source receives an event, it stores it into one or more channels.</p>
+<p>The channel is a passive store that keeps the event until it’s consumed by a Flume sink</p>
+<p>A channel is a conduit for events between a source and a sink. Channels also dictate the durability of event delivery between a source and a sink.</p>
+<p><img alt="" src="_images/658px-Conduit_block_placement.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="sink">
+<h1>Sink<a class="headerlink" href="#sink" title="Permalink to this headline">¶</a></h1>
+<p>A sink is the counterpart to the source in that it is a destination for data in Flume.</p>
+<p>Some of the builtin sinks that are included with Flume are</p>
+<ul class="simple">
+<li><p>the Hadoop Distributed File System sink which writes events to HDFS in various ways</p></li>
+<li><p>the logger sink which simply logs all events received</p></li>
+<li><p>the null sink which is Flume’s version of /dev/null</p></li>
+</ul>
+<p><img alt="" src="_images/nemo.gif" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="agent">
+<h1>Agent<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h1>
+<p>A Flume agent puts together the components to be connected:</p>
+<ul class="simple">
+<li><p>source</p></li>
+<li><p>channel</p></li>
+<li><p>sink</p></li>
+</ul>
+<p>components are named and configured for each channel</p>
+<p>Multiple agent can be run at the same time in the same process</p>
+<p><img alt="" src="_images/flume-agent.png" /></p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="c"># example.conf: A single-node Flume configuration</span>
+
+<span class="c"># Name the components on this agent</span>
+<span class="na">a1.sources</span> <span class="o">=</span> <span class="s">r1</span>
+<span class="na">a1.sinks</span> <span class="o">=</span> <span class="s">k1</span>
+<span class="na">a1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+
+<span class="c"># Describe/configure the source</span>
+<span class="na">a1.sources.r1.type</span> <span class="o">=</span> <span class="s">netcat</span>
+<span class="na">a1.sources.r1.bind</span> <span class="o">=</span> <span class="s">localhost</span>
+<span class="na">a1.sources.r1.port</span> <span class="o">=</span> <span class="s">44444</span>
+
+<span class="c"># Describe the sink</span>
+<span class="na">a1.sinks.k1.type</span> <span class="o">=</span> <span class="s">logger</span>
+
+<span class="c"># Use a channel which buffers events in memory</span>
+<span class="na">a1.channels.c1.type</span> <span class="o">=</span> <span class="s">memory</span>
+<span class="na">a1.channels.c1.capacity</span> <span class="o">=</span> <span class="s">1000</span>
+<span class="na">a1.channels.c1.transactionCapacity</span> <span class="o">=</span> <span class="s">100</span>
+
+<span class="c"># Bind the source and sink to the channel</span>
+<span class="na">a1.sources.r1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sinks.k1.channel</span> <span class="o">=</span> <span class="s">c1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dockerfile">
+<h1>Dockerfile<a class="headerlink" href="#dockerfile" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-DockerFile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span> <span class="s">openjdk:8-jre-alpine</span>
+<span class="k">MAINTAINER</span><span class="s"> Salvo Nicotra</span>
+<span class="k">ENV</span> PATH /opt/flume/bin:<span class="nv">$PATH</span>
+
+<span class="k">RUN</span> apk update <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apk add --no-cache wget bash <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> mkdir -p /opt/flume <span class="o">&amp;&amp;</span> wget -qO- http://archive.apache.org/dist/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz <span class="p">|</span> tar zxvf - -C /opt/flume --strip <span class="m">1</span>
+
+<span class="k">RUN</span> mkdir /var/log/netcat
+<span class="k">ADD</span> start-flume.sh /opt/flume/bin/start-flume
+<span class="c"># Copy All conf here</span>
+<span class="k">ADD</span> conf/* /opt/flume/conf/
+<span class="c"># Add compiled lib</span>
+<span class="k">ADD</span> lib/* /opt/flume/lib/
+<span class="k">EXPOSE</span><span class="s"> 44444</span>
+
+<span class="k">ENTRYPOINT</span> <span class="p">[</span> <span class="s2">&quot;start-flume&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="wrapper">
+<h1>Wrapper<a class="headerlink" href="#wrapper" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span> -v
+<span class="nv">FLUME_CONF_DIR</span><span class="o">=</span>/opt/flume/conf
+<span class="nv">FLUME_AGENT_NAME</span><span class="o">=</span>a1 
+
+<span class="o">[[</span> -d <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FLUME_CONF_DIR</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="o">]]</span>  <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Flume config dir not mounted in /opt/flume-config&quot;</span><span class="p">;</span>  <span class="nb">exit</span> <span class="m">1</span><span class="p">;</span> <span class="o">}</span>
+<span class="o">[[</span> -z <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FLUME_AGENT_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;FLUME_AGENT_NAME required&quot;</span><span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span><span class="p">;</span> <span class="o">}</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Starting flume agent : </span><span class="si">${</span><span class="nv">FLUME_AGENT_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nv">COMMAND</span><span class="o">=</span><span class="s2">&quot;flume-ng agent \</span>
+<span class="s2">  -c </span><span class="si">${</span><span class="nv">FLUME_CONF_DIR</span><span class="si">}</span><span class="s2"> \</span>
+<span class="s2">  -f </span><span class="si">${</span><span class="nv">FLUME_CONF_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">FLUME_CONF_FILE</span><span class="si">}</span><span class="s2">\</span>
+<span class="s2">  -n </span><span class="si">${</span><span class="nv">FLUME_AGENT_NAME</span><span class="si">}</span><span class="s2"> \</span>
+<span class="s2">  -Dflume.root.logger=INFO,console</span>
+<span class="s2">  -Dorg.apache.flume.log.printconfig=true </span>
+<span class="s2">  -Dorg.apache.flume.log.rawdata=true</span>
+<span class="s2">  &quot;</span>
+
+<span class="si">${</span><span class="nv">COMMAND</span><span class="si">}</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="flume-hello-world">
+<h1>Flume Hello World<a class="headerlink" href="#flume-hello-world" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># cd tap/bin</span>
+<span class="c1"># Only once</span>
+docker network create --subnet<span class="o">=</span><span class="m">10</span>.0.100.1/24 tap
+<span class="c1"># Build</span>
+docker build ../flume/ --tag tap:flume
+<span class="c1"># Run</span>
+docker run --network tap --ip <span class="m">10</span>.0.100.10 -p <span class="m">44444</span>:44444  -e <span class="nv">FLUME_CONF_FILE</span><span class="o">=</span>netcatExample.conf tap:flume
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-serialization">
+<h1>Data Serialization<a class="headerlink" href="#data-serialization" title="Permalink to this headline">¶</a></h1>
+<p>In computing, serialization (or serialisation) is the process of translating data structures or object state into a format that can be stored (for example, in a file or memory buffer) or transmitted (for example, across a network connection link) and reconstructed later (possibly in a different computer environment).[1]</p>
+<p>When the resulting series of bits is reread according to the serialization format, it can be used to create a semantically identical clone of the original object. For many complex objects, such as those that make extensive use of references, this process is not straightforward. Serialization of object-oriented objects does not include any of their associated methods with which they were previously linked.</p>
+<p>This process of serializing an object is also called marshalling an object in some situations.[1][2] The opposite operation, extracting a data structure from a series of bytes, is deserialization (also called unmarshalling).</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Serialization">https://en.wikipedia.org/wiki/Serialization</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="types-of-serialization">
+<h1>Types of Serialization<a class="headerlink" href="#types-of-serialization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="popular">
+<h2>Popular<a class="headerlink" href="#popular" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CSV</p></li>
+</ul>
+<ul class="simple">
+<li><p>XML</p></li>
+</ul>
+<ul class="simple">
+<li><p>JSON</p></li>
+</ul>
+<ul class="simple">
+<li><p>YAML</p></li>
+</ul>
+</div>
+<div class="section" id="binary">
+<h2>Binary<a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Protocol Buffer</p></li>
+</ul>
+<ul class="simple">
+<li><p>BSON</p></li>
+</ul>
+<ul class="simple">
+<li><p>MessagePack</p></li>
+</ul>
+<ul class="simple">
+<li><p>Thrift</p></li>
+</ul>
+</div>
+<div class="section" id="big-data">
+<h2>Big Data<a class="headerlink" href="#big-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>AVRO</p></li>
+</ul>
+<ul class="simple">
+<li><p>Parquet</p></li>
+</ul>
+<p><a class="reference external" href="https://luminousmen.com/post/big-data-file-formats">https://luminousmen.com/post/big-data-file-formats</a></p>
+<p><a class="reference external" href="https://www.xenonstack.com/blog/data-serialization-hadoop/">https://www.xenonstack.com/blog/data-serialization-hadoop/</a></p>
+<p><a class="reference external" href="https://arrow.apache.org/blog/2019/10/13/introducing-arrow-flight/">https://arrow.apache.org/blog/2019/10/13/introducing-arrow-flight/</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="avro">
+<h1>Avro<a class="headerlink" href="#avro" title="Permalink to this headline">¶</a></h1>
+<p>Apache Avro is a remote procedure call and data serialization framework developed within Apache’s Hadoop project.</p>
+<p>It uses JSON for defining data types and protocols, and serializes data in a compact binary format.</p>
+<p>Since it’s a row based format, it’s better to use when all fields needs to be accessed
+Files support block compression and are splittable
+Suitable for write intensive operation</p>
+<p><img alt="" src="https://avro.apache.org/images/avro-logo.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="flume-source">
+<h1>Flume Source<a class="headerlink" href="#flume-source" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>Avro<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Listens on Avro port and receives events from external Avro client streams.</p>
+<p>When paired with the built-in Avro Sink on another (previous hop) Flume agent, it can create tiered collection topologies.</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">a1.sources</span> <span class="o">=</span> <span class="s">r1</span>
+<span class="na">a1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sources.r1.type</span> <span class="o">=</span> <span class="s">avro</span>
+<span class="na">a1.sources.r1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sources.r1.bind</span> <span class="o">=</span> <span class="s">0.0.0.0</span>
+<span class="na">a1.sources.r1.port</span> <span class="o">=</span> <span class="s">4141</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exec">
+<h1>Exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h1>
+<p>Exec source runs a given Unix command on start-up and expects that process to continuously produce data on standard out (stderr is simply discarded, unless property logStdErr is set to true). If the process exits for any reason, the source also exits and will produce no further data. This means configurations such as cat [named pipe] or tail -F [file] are going to produce the desired results where as date will probably not - the former two commands produce streams of data where as the latter produces a single event and exits.</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">a1.sources</span> <span class="o">=</span> <span class="s">r1</span>
+<span class="na">a1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sources.r1.type</span> <span class="o">=</span> <span class="s">exec</span>
+<span class="na">a1.sources.r1.command</span> <span class="o">=</span> <span class="s">tail -F /var/log/secure</span>
+<span class="na">a1.sources.r1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="twitter-firehose">
+<h1>Twitter Firehose<a class="headerlink" href="#twitter-firehose" title="Permalink to this headline">¶</a></h1>
+<p>Experimental source that connects via Streaming API to the 1% sample twitter firehose, continously downloads tweets, converts them to Avro format and sends Avro events to a downstream Flume sink.</p>
+<p>Requires the consumer and access tokens and secrets of a Twitter developer account. Required properties are in bold.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="other-sources">
+<h1>Other Sources<a class="headerlink" href="#other-sources" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Kafka</p></li>
+<li><p>Netcat</p></li>
+<li><p>Syslog</p></li>
+<li><p>Http</p></li>
+<li><p>Custom</p></li>
+</ul>
+<p><a class="reference external" href="https://flume.apache.org/releases/content/1.9.0/FlumeUserGuide.html#flume-sources">https://flume.apache.org/releases/content/1.9.0/FlumeUserGuide.html#flume-sources</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="flume-channels">
+<h1>Flume Channels<a class="headerlink" href="#flume-channels" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="memory">
+<h1>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h1>
+<p>The events are stored in an in-memory queue with configurable max size. It’s ideal for flows that need higher throughput and are prepared to lose the staged data in the event of a agent failures. Required properties are in bold.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property  Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>–</p></td>
+<td><p>The component type name, needs to be memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>capacity</p></td>
+<td><p>100</p></td>
+<td><p>The maximum number of events stored in the channel</p></td>
+</tr>
+<tr class="row-even"><td><p>transactionCapacity</p></td>
+<td><p>100</p></td>
+<td><p>The maximum number of events the channel will take from a source or give to a sink per transaction</p></td>
+</tr>
+<tr class="row-odd"><td><p>keep-alive</p></td>
+<td><p>3</p></td>
+<td><p>Timeout in seconds for adding or removing an event</p></td>
+</tr>
+<tr class="row-even"><td><p>byteCapacityBufferPercentage</p></td>
+<td><p>20</p></td>
+<td><p>Defines the percent of buffer between byteCapacity and the estimated total size of all events in the channel, to account for data in headers. See below.</p></td>
+</tr>
+<tr class="row-odd"><td><p>byteCapacity</p></td>
+<td><p>see description</p></td>
+<td><p>maximum total bytes of memory allowed as a sum of all events in this channel. The implementation only counts the Event body, which is the reason for providing the byteCapacityBufferPercentage configuration parameter as well. Defaults to a computed value equal to 80% of the maximum memory available to the JVM</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="jdbc">
+<h1>JDBC<a class="headerlink" href="#jdbc" title="Permalink to this headline">¶</a></h1>
+<p>The events are stored in a persistent storage that’s backed by a database. The JDBC channel currently supports embedded Derby. This is a durable channel that’s ideal for flows where recoverability is important.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="kafka">
+<h1>Kafka<a class="headerlink" href="#kafka" title="Permalink to this headline">¶</a></h1>
+<p>The events are stored in a Kafka cluster (must be installed separately). Kafka provides high availability and replication, so in case an agent or a kafka broker crashes, the events are immediately available to other sinks</p>
+<p>The Kafka channel can be used for multiple scenarios:</p>
+<ul class="simple">
+<li><p>With Flume source and sink - it provides a reliable and highly available channel for events</p></li>
+<li><p>With Flume source and interceptor but no sink - it allows writing Flume events into a Kafka topic, for use by other apps</p></li>
+<li><p>With Flume sink, but no source - it is a low-latency, fault tolerant way to send events from Kafka to Flume sinks such as HDFS, HBase or Solr</p></li>
+</ul>
+<p>This currently supports Kafka server releases 0.10.1.0 or higher. Testing was done up to 2.0.1 that was the highest avilable version at the time of the release.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="file">
+<h1>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>–</p></td>
+<td><p>The component type name, needs to be file.</p></td>
+</tr>
+<tr class="row-odd"><td><p>checkpointDir</p></td>
+<td><p>~/.flume/file-channel/checkpoint</p></td>
+<td><p>The directory where checkpoint file will be stored</p></td>
+</tr>
+<tr class="row-even"><td><p>useDualCheckpoints</p></td>
+<td><p>false</p></td>
+<td><p>Backup the checkpoint. If this is set to true, backupCheckpointDir must be set</p></td>
+</tr>
+<tr class="row-odd"><td><p>backupCheckpointDir</p></td>
+<td><p>–</p></td>
+<td><p>The directory where the checkpoint is backed up to. This directory must not be the same as the data directories or the checkpoint directory</p></td>
+</tr>
+<tr class="row-even"><td><p>dataDirs</p></td>
+<td><p>~/.flume/file-channel/data</p></td>
+<td><p>Comma separated list of directories for storing log files. Using multiple directories on separate disks can improve file channel peformance</p></td>
+</tr>
+<tr class="row-odd"><td><p>transactionCapacity</p></td>
+<td><p>10000</p></td>
+<td><p>The maximum size of transaction supported by the channel</p></td>
+</tr>
+<tr class="row-even"><td><p>checkpointInterval</p></td>
+<td><p>30000</p></td>
+<td><p>Amount of time (in millis) between checkpoints</p></td>
+</tr>
+<tr class="row-odd"><td><p>maxFileSize</p></td>
+<td><p>2146435071</p></td>
+<td><p>Max size (in bytes) of a single log file</p></td>
+</tr>
+<tr class="row-even"><td><p>minimumRequiredSpace</p></td>
+<td><p>524288000</p></td>
+<td><p>Minimum Required free space (in bytes). To avoid data corruption, File Channel stops accepting take/put requests when free space drops below this value</p></td>
+</tr>
+<tr class="row-odd"><td><p>capacity</p></td>
+<td><p>1000000</p></td>
+<td><p>Maximum capacity of the channel</p></td>
+</tr>
+<tr class="row-even"><td><p>keep-alive</p></td>
+<td><p>3</p></td>
+<td><p>Amount of time (in sec) to wait for a put operation</p></td>
+</tr>
+<tr class="row-odd"><td><p>use-log-replay-v1</p></td>
+<td><p>false</p></td>
+<td><p>Expert: Use old replay logic</p></td>
+</tr>
+<tr class="row-even"><td><p>use-fast-replay</p></td>
+<td><p>false</p></td>
+<td><p>Expert: Replay without using queue</p></td>
+</tr>
+<tr class="row-odd"><td><p>checkpointOnClose</p></td>
+<td><p>true</p></td>
+<td><p>Controls if a checkpoint is created when the channel is closed. Creating a checkpoint on close speeds up subsequent startup of the file channel by avoiding replay.</p></td>
+</tr>
+<tr class="row-even"><td><p>encryption.activeKey</p></td>
+<td><p>–</p></td>
+<td><p>Key name used to encrypt new data</p></td>
+</tr>
+<tr class="row-odd"><td><p>encryption.cipherProvider</p></td>
+<td><p>–</p></td>
+<td><p>Cipher provider type, supported types: AESCTRNOPADDING</p></td>
+</tr>
+<tr class="row-even"><td><p>encryption.keyProvider</p></td>
+<td><p>–</p></td>
+<td><p>Key provider type, supported types: JCEKSFILE</p></td>
+</tr>
+<tr class="row-odd"><td><p>encryption.keyProvider.keyStoreFile</p></td>
+<td><p>–</p></td>
+<td><p>Path to the keystore file</p></td>
+</tr>
+<tr class="row-even"><td><p>encrpytion.keyProvider.keyStorePasswordFile</p></td>
+<td><p>–</p></td>
+<td><p>Path to the keystore password file</p></td>
+</tr>
+<tr class="row-odd"><td><p>encryption.keyProvider.keys</p></td>
+<td><p>–</p></td>
+<td><p>List of all keys (e.g. history of the activeKey setting)</p></td>
+</tr>
+<tr class="row-even"><td><p>encyption.keyProvider.keys.*.passwordFile</p></td>
+<td><p>–</p></td>
+<td><p>Path to the optional key password file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="others">
+<h1>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Spillable Memory</p></li>
+<li><p>Pseudo Transaction</p></li>
+<li><p>Custom</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="hdfs">
+<h1>HDFS<a class="headerlink" href="#hdfs" title="Permalink to this headline">¶</a></h1>
+<p>HDFS is the primary distributed storage used by Hadoop applications. A HDFS cluster primarily consists of a NameNode that manages the file system metadata and DataNodes that store the actual data.</p>
+<p>The HDFS architecture diagram depicts basic interactions among NameNode, the DataNodes, and the clients. Clients contact NameNode for file metadata or file modifications and perform actual file I/O directly with the DataNodes.</p>
+<p><img alt="" src="../images/hdfs.gif" /></p>
+<p>The following are some of the salient features that could be of interest to many users.</p>
+<ul class="simple">
+<li><p>Hadoop, including HDFS, is well suited for distributed storage and distributed processing using commodity hardware. It is fault tolerant, scalable, and extremely simple to expand. MapReduce, well known for its simplicity and applicability for large set of distributed applications, is an integral part of Hadoop.</p></li>
+</ul>
+<ul class="simple">
+<li><p>HDFS is highly configurable with a default configuration well suited for many installations. Most of the time, configuration needs to be tuned only for very large clusters.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Hadoop is written in Java and is supported on all major platforms.</p></li>
+<li><p>Hadoop supports shell-like commands to interact with HDFS directly.</p></li>
+<li><p>The NameNode and Datanodes have built in web servers that makes it easy to check current status of the cluster.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="start-hadoop-in-docker">
+<h1>Start Hadoop in Docker<a class="headerlink" href="#start-hadoop-in-docker" title="Permalink to this headline">¶</a></h1>
+<p>Check Out</p>
+<p><a class="reference external" href="https://github.com/big-data-europe/docker-hadoop">https://github.com/big-data-europe/docker-hadoop</a></p>
+<p>Edit docker-compose.yml</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">namenode</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">namenode</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9870:9870</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">9000:9000</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hadoop_namenode:/hadoop/dfs/name</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CLUSTER_NAME=test</span>
+    <span class="nt">env_file</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./hadoop.env</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="nt">tap</span><span class="p">:</span>
+          <span class="nt">ipv4_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.100.71</span>
+
+  <span class="nt">datanode</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">datanode</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hadoop_datanode:/hadoop/dfs/data</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">SERVICE_PRECONDITION</span><span class="p">:</span> <span class="s">&quot;namenode:9870&quot;</span>
+    <span class="nt">env_file</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./hadoop.env</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="nt">tap</span><span class="p">:</span>
+          <span class="nt">ipv4_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.100.72</span>
+  
+  <span class="nt">resourcemanager</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">resourcemanager</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">SERVICE_PRECONDITION</span><span class="p">:</span> <span class="s">&quot;namenode:9000</span><span class="nv"> </span><span class="s">namenode:9870</span><span class="nv"> </span><span class="s">datanode:9864&quot;</span>
+    <span class="nt">env_file</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./hadoop.env</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="nt">tap</span><span class="p">:</span>
+          <span class="nt">ipv4_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.100.73</span>
+    
+  <span class="nt">nodemanager1</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nodemanager</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">SERVICE_PRECONDITION</span><span class="p">:</span> <span class="s">&quot;namenode:9000</span><span class="nv"> </span><span class="s">namenode:9870</span><span class="nv"> </span><span class="s">datanode:9864</span><span class="nv"> </span><span class="s">resourcemanager:8088&quot;</span>
+    <span class="nt">env_file</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./hadoop.env</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="nt">tap</span><span class="p">:</span>
+          <span class="nt">ipv4_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.100.74</span>
+  
+  <span class="nt">historyserver</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">historyserver</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">SERVICE_PRECONDITION</span><span class="p">:</span> <span class="s">&quot;namenode:9000</span><span class="nv"> </span><span class="s">namenode:9870</span><span class="nv"> </span><span class="s">datanode:9864</span><span class="nv"> </span><span class="s">resourcemanager:8088&quot;</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hadoop_historyserver:/hadoop/yarn/timeline</span>
+    <span class="nt">env_file</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">./hadoop.env</span>
+    <span class="nt">networks</span><span class="p">:</span>
+      <span class="nt">tap</span><span class="p">:</span>
+          <span class="nt">ipv4_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.100.75</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">hadoop_namenode</span><span class="p">:</span>
+  <span class="nt">hadoop_datanode</span><span class="p">:</span>
+  <span class="nt">hadoop_historyserver</span><span class="p">:</span>
+
+<span class="nt">networks</span><span class="p">:</span>
+  <span class="nt">tap</span><span class="p">:</span>
+    <span class="nt">external</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/nics/Dev/docker-hadoop
+docker-compose up
+<span class="c1"># Remember to use docker compose and not compose 3</span>
+</pre></div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Service</p></th>
+<th class="head"><p>Address</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Namenode</p></td>
+<td><p><a class="reference external" href="http://localhost:9870/dfshealth.html#tab-overview">http://localhost:9870/dfshealth.html#tab-overview</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>History server</p></td>
+<td><p><a class="reference external" href="http://dockerhadoop:8188/applicationhistory">http://dockerhadoop:8188/applicationhistory</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Datanode</p></td>
+<td><p><a class="reference external" href="http://dockerhadoop:9864/">http://dockerhadoop:9864/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Nodemanager</p></td>
+<td><p><a class="reference external" href="http://dockerhadoop:8042/node">http://dockerhadoop:8042/node</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Resource manager</p></td>
+<td><p><a class="reference external" href="http://dockerhadoop:8088/">http://dockerhadoop:8088/</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>See also</p>
+<p><a class="reference external" href="https://www.section.io/engineering-education/set-up-containerize-and-test-a-single-hadoop-cluster-using-docker-and-docker-compose/">https://www.section.io/engineering-education/set-up-containerize-and-test-a-single-hadoop-cluster-using-docker-and-docker-compose/</a></p>
+<p><a class="reference external" href="https://shortcut.com/developer-how-to/how-to-set-up-a-hadoop-cluster-in-docker">https://shortcut.com/developer-how-to/how-to-set-up-a-hadoop-cluster-in-docker</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="flume-sinks">
+<h1>Flume Sinks<a class="headerlink" href="#flume-sinks" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="hfds">
+<h1>HFDS<a class="headerlink" href="#hfds" title="Permalink to this headline">¶</a></h1>
+<p>This sink writes events into the Hadoop Distributed File System (HDFS). It currently supports creating text and sequence files. It supports compression in both file types.</p>
+<p>The files can be rolled (close current file and create a new one) periodically based on the elapsed time or size of data or number of events. It also buckets/partitions data by attributes like timestamp or machine where the event originated.</p>
+<p>The HDFS directory path may contain formatting escape sequences that will replaced by the HDFS sink to generate a directory/file name to store the events.</p>
+<p>Using this sink requires hadoop to be installed so that Flume can use the Hadoop jars to communicate with the HDFS cluster. Note that a version of Hadoop that supports the sync() call is required.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="escape-sequences">
+<h1>Escape Sequences<a class="headerlink" href="#escape-sequences" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Alias</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>%{host}</p></td>
+<td><p>Substitute value of event header named “host”. Arbitrary header names are supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>%t</p></td>
+<td><p>Unix time in milliseconds</p></td>
+</tr>
+<tr class="row-even"><td><p>%a</p></td>
+<td><p>locale’s short weekday name (Mon, Tue, …)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%A</p></td>
+<td><p>locale’s full weekday name (Monday, Tuesday, …)</p></td>
+</tr>
+<tr class="row-even"><td><p>%b</p></td>
+<td><p>locale’s short month name (Jan, Feb, …)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%B</p></td>
+<td><p>locale’s long month name (January, February, …)</p></td>
+</tr>
+<tr class="row-even"><td><p>%c</p></td>
+<td><p>locale’s date and time (Thu Mar 3 23:05:25 2005)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%d</p></td>
+<td><p>day of month (01)</p></td>
+</tr>
+<tr class="row-even"><td><p>%e</p></td>
+<td><p>day of month without padding (1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%D</p></td>
+<td><p>date; same as %m/%d/%y</p></td>
+</tr>
+<tr class="row-even"><td><p>%H</p></td>
+<td><p>hour (00..23)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%I</p></td>
+<td><p>hour (01..12)</p></td>
+</tr>
+<tr class="row-even"><td><p>%j</p></td>
+<td><p>day of year (001..366)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%k</p></td>
+<td><p>hour ( 0..23)</p></td>
+</tr>
+<tr class="row-even"><td><p>%m</p></td>
+<td><p>month (01..12)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%n</p></td>
+<td><p>month without padding (1..12)</p></td>
+</tr>
+<tr class="row-even"><td><p>%M</p></td>
+<td><p>minute (00..59)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%p</p></td>
+<td><p>locale’s equivalent of am or pm</p></td>
+</tr>
+<tr class="row-even"><td><p>%s</p></td>
+<td><p>seconds since 1970-01-01 00:00:00 UTC</p></td>
+</tr>
+<tr class="row-odd"><td><p>%S</p></td>
+<td><p>second (00..59)</p></td>
+</tr>
+<tr class="row-even"><td><p>%y</p></td>
+<td><p>last two digits of year (00..99)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%Y</p></td>
+<td><p>year (2010)</p></td>
+</tr>
+<tr class="row-even"><td><p>%z</p></td>
+<td><p>+hhmm numeric timezone (for example, -0400)</p></td>
+</tr>
+<tr class="row-odd"><td><p>%[localhost]</p></td>
+<td><p>Substitute the hostname of the host where the agent is running</p></td>
+</tr>
+<tr class="row-even"><td><p>%[IP]</p></td>
+<td><p>Substitute the IP address of the host where the agent is running</p></td>
+</tr>
+<tr class="row-odd"><td><p>%[FQDN]</p></td>
+<td><p>Substitute the canonical hostname of the host where the agent is running</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id2">
+<h1>Configuration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>channel</p></td>
+<td><p>–</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>–</p></td>
+<td><p>The component type name, needs to be hdfs</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.path</p></td>
+<td><p>–</p></td>
+<td><p>HDFS directory path (eg hdfs://namenode/flume/webdata/)</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.filePrefix</p></td>
+<td><p>FlumeData</p></td>
+<td><p>Name prefixed to files created by Flume in hdfs directory</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.fileSuffix</p></td>
+<td><p>–</p></td>
+<td><p>Suffix to append to file (eg .avro - NOTE: period is not automatically added)</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.inUsePrefix</p></td>
+<td><p>–</p></td>
+<td><p>Prefix that is used for temporal files that flume actively writes into</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.inUseSuffix</p></td>
+<td><p>.tmp</p></td>
+<td><p>Suffix that is used for temporal files that flume actively writes into</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.emptyInUseSuffix</p></td>
+<td><p>false</p></td>
+<td><p>If false an hdfs.inUseSuffix is used while writing the output. After closing the output hdfs.inUseSuffix is removed from the output file name. If true the hdfs.inUseSuffix parameter is ignored an empty string is used instead.</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.rollInterval</p></td>
+<td><p>30</p></td>
+<td><p>Number of seconds to wait before rolling current file (0 = never roll based on time interval)</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.rollSize</p></td>
+<td><p>1024</p></td>
+<td><p>File size to trigger roll, in bytes (0: never roll based on file size)</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.rollCount</p></td>
+<td><p>10</p></td>
+<td><p>Number of events written to file before it rolled (0 = never roll based on number of events)</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.idleTimeout</p></td>
+<td><p>0</p></td>
+<td><p>Timeout after which inactive files get closed (0 = disable automatic closing of idle files)</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.batchSize</p></td>
+<td><p>100</p></td>
+<td><p>number of events written to file before it is flushed to HDFS</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.codeC</p></td>
+<td><p>–</p></td>
+<td><p>Compression codec. one of following : gzip, bzip2, lzo, lzop, snappy</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.fileType</p></td>
+<td><p>SequenceFile</p></td>
+<td><p>File format: currently SequenceFile, DataStream or CompressedStream (1)DataStream will not compress output file and please don’t set codeC (2)CompressedStream requires set hdfs.codeC with an available codeC</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.maxOpenFiles</p></td>
+<td><p>5000</p></td>
+<td><p>Allow only this number of open files. If this number is exceeded, the oldest file is closed.</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.minBlockReplicas</p></td>
+<td><p>–</p></td>
+<td><p>Specify minimum number of replicas per HDFS block. If not specified, it comes from the default Hadoop config in the classpath.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.writeFormat</p></td>
+<td><p>Writable</p></td>
+<td><p>Format for sequence file records. One of Text or Writable. Set to Text before creating data files with Flume, otherwise those files cannot be read by either Apache Impala (incubating) or Apache Hive.</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.threadsPoolSize</p></td>
+<td><p>10</p></td>
+<td><p>Number of threads per HDFS sink for HDFS IO ops (open, write, etc.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.rollTimerPoolSize</p></td>
+<td><p>1</p></td>
+<td><p>Number of threads per HDFS sink for scheduling timed file rolling</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.kerberosPrincipal</p></td>
+<td><p>–</p></td>
+<td><p>Kerberos user principal for accessing secure HDFS</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.kerberosKeytab</p></td>
+<td><p>–</p></td>
+<td><p>Kerberos keytab for accessing secure HDFS</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.proxyUser</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.round</p></td>
+<td><p>false</p></td>
+<td><p>Should the timestamp be rounded down (if true, affects all time based escape sequences except %t)</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.roundValue</p></td>
+<td><p>1</p></td>
+<td><p>Rounded down to the highest multiple of this (in the unit configured using hdfs.roundUnit), less than current time.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.roundUnit</p></td>
+<td><p>second</p></td>
+<td><p>The unit of the round down value - second, minute or hour.</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.timeZone</p></td>
+<td><p>Local Time</p></td>
+<td><p>Name of the timezone that should be used for resolving the directory path, e.g. America/Los_Angeles.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.useLocalTimeStamp</p></td>
+<td><p>false</p></td>
+<td><p>Use the local time (instead of the timestamp from the event header) while replacing the escape sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p>hdfs.closeTries</p></td>
+<td><p>0</p></td>
+<td><p>Number of times the sink must try renaming a file, after initiating a close attempt. If set to 1, this sink will not re-try a failed rename (due to, for example, NameNode or DataNode failure), and may leave the file in an open state with a .tmp extension. If set to 0, the sink will try to rename the file until the file is eventually renamed (there is no limit on the number of times it would try). The file may still remain open if the close call fails but the data will be intact and in this case, the file will be closed only after a Flume restart.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hdfs.retryInterval</p></td>
+<td><p>180</p></td>
+<td><p>Time in seconds between consecutive attempts to close a file. Each close call costs multiple RPC round-trips to the Namenode, so setting this too low can cause a lot of load on the name node. If set to 0 or less, the sink will not attempt to close the file if the first attempt fails, and may leave the file open or with a ”.tmp” extension.</p></td>
+</tr>
+<tr class="row-even"><td><p>serializer</p></td>
+<td><p>TEXT</p></td>
+<td><p>Other possible options include avro_event or the fully-qualified class name of an implementation of the EventSerializer.Builder interface.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">a1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sinks</span> <span class="o">=</span> <span class="s">k1</span>
+<span class="na">a1.sinks.k1.type</span> <span class="o">=</span> <span class="s">hdfs</span>
+<span class="na">a1.sinks.k1.channel</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sinks.k1.hdfs.path</span> <span class="o">=</span> <span class="s">/flume/events/%y-%m-%d/%H%M/%S</span>
+<span class="na">a1.sinks.k1.hdfs.filePrefix</span> <span class="o">=</span> <span class="s">events-</span>
+<span class="na">a1.sinks.k1.hdfs.round</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">a1.sinks.k1.hdfs.roundValue</span> <span class="o">=</span> <span class="s">10</span>
+<span class="na">a1.sinks.k1.hdfs.roundUnit</span> <span class="o">=</span> <span class="s">minute</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="demo-netcat-hdfs">
+<h1>Demo Netcat - Hdfs<a class="headerlink" href="#demo-netcat-hdfs" title="Permalink to this headline">¶</a></h1>
+<p>docker build ../flume/ –tag tap:flume</p>
+<p>docker run –network tap -p 44444:44444 -it -e FLUME_CONF_FILE=netcatHdfs.conf tap:flume</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="logger">
+<h1>Logger<a class="headerlink" href="#logger" title="Permalink to this headline">¶</a></h1>
+<p>Logs event at INFO level. Typically useful for testing/debugging purpose. Required properties are in bold. This sink is the only exception which doesn’t require the extra configuration explained in the Logging raw data section.</p>
+<p>maxBytesToLog: 16 -&gt; Maximum number of bytes of the Event body to log
+<a class="reference external" href="https://github.com/apache/flume/blob/trunk/flume-ng-core/src/main/java/org/apache/flume/sink/LoggerSink.java">https://github.com/apache/flume/blob/trunk/flume-ng-core/src/main/java/org/apache/flume/sink/LoggerSink.java</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="file-roll">
+<h1>File Roll<a class="headerlink" href="#file-roll" title="Permalink to this headline">¶</a></h1>
+<p>Stores events on the local filesystem.</p>
+<p>Required properties are in bold.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>channel</p></td>
+<td><p>–</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>–</p></td>
+<td><p>The component type name, needs to be file_roll.</p></td>
+</tr>
+<tr class="row-even"><td><p>sink.directory</p></td>
+<td><p>–</p></td>
+<td><p>The directory where files will be stored</p></td>
+</tr>
+<tr class="row-odd"><td><p>sink.pathManager</p></td>
+<td><p>DEFAULT</p></td>
+<td><p>The PathManager implementation to use.</p></td>
+</tr>
+<tr class="row-even"><td><p>sink.pathManager.extension</p></td>
+<td><p>–</p></td>
+<td><p>The file extension if the default PathManager is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sink.pathManager.prefix</p></td>
+<td><p>–</p></td>
+<td><p>A character string to add to the beginning of the file name if the default PathManager is used</p></td>
+</tr>
+<tr class="row-even"><td><p>sink.rollInterval</p></td>
+<td><p>30</p></td>
+<td><p>Roll the file every 30 seconds. Specifying 0 will disable rolling and cause all events to be written to a single file.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sink.serializer</p></td>
+<td><p>TEXT</p></td>
+<td><p>Other possible options include avro_event or the FQCN of an implementation of EventSerializer.Builder interface.</p></td>
+</tr>
+<tr class="row-even"><td><p>sink.batchSize</p></td>
+<td><p>100</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="elastic-search">
+<h1>Elastic Search<a class="headerlink" href="#elastic-search" title="Permalink to this headline">¶</a></h1>
+<p>This sink writes data to an elasticsearch cluster. By default, events will be written so that the Kibana graphical interface can display them - just as if logstash wrote them.</p>
+<p>The elasticsearch and lucene-core jars required for your environment must be placed in the lib directory of the Apache Flume installation. Elasticsearch requires that the major version of the client JAR match that of the server and that both are running the same minor version of the JVM. SerializationExceptions will appear if this is incorrect. To select the required version first determine the version of elasticsearch and the JVM version the target cluster is running. Then select an elasticsearch client library which matches the major version. A 0.19.x client can talk to a 0.19.x cluster; 0.20.x can talk to 0.20.x and 0.90.x can talk to 0.90.x. Once the elasticsearch version has been determined then read the pom.xml file to determine the correct lucene-core JAR version to use. The Flume agent which is running the ElasticSearchSink should also match the JVM the target cluster is running down to the minor version.</p>
+<p>Events will be written to a new index every day. The name will be <indexName>-yyyy-MM-dd where <indexName> is the indexName parameter. The sink will start writing to a new index at midnight UTC.</p>
+<p>Events are serialized for elasticsearch by the ElasticSearchLogStashEventSerializer by default. This behaviour can be overridden with the serializer parameter. This parameter accepts implementations of org.apache.flume.sink.elasticsearch.ElasticSearchEventSerializer or org.apache.flume.sink.elasticsearch.ElasticSearchIndexRequestBuilderFactory. Implementing ElasticSearchEventSerializer is deprecated in favour of the more powerful ElasticSearchIndexRequestBuilderFactory.</p>
+<p>The type is the FQCN: org.apache.flume.sink.elasticsearch.ElasticSearchSink</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>channel</p></td>
+<td><p>–</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>–</p></td>
+<td><p>The component type name, needs to be org.apache.flume.sink.elasticsearch.ElasticSearchSink</p></td>
+</tr>
+<tr class="row-even"><td><p>hostNames</p></td>
+<td><p>–</p></td>
+<td><p>Comma separated list of hostname:port, if the port is not present the default port ‘9300’ will be used</p></td>
+</tr>
+<tr class="row-odd"><td><p>indexName</p></td>
+<td><p>flume</p></td>
+<td><p>The name of the index which the date will be appended to. Example ‘flume’ -&gt; ‘flume-yyyy-MM-dd’ Arbitrary header substitution is supported, eg. %{header} replaces with value of named event header</p></td>
+</tr>
+<tr class="row-even"><td><p>indexType</p></td>
+<td><p>logs</p></td>
+<td><p>The type to index the document to, defaults to ‘log’ Arbitrary header substitution is supported, eg. %{header} replaces with value of named event header</p></td>
+</tr>
+<tr class="row-odd"><td><p>clusterName</p></td>
+<td><p>elasticsearch</p></td>
+<td><p>Name of the ElasticSearch cluster to connect to</p></td>
+</tr>
+<tr class="row-even"><td><p>batchSize</p></td>
+<td><p>100</p></td>
+<td><p>Number of events to be written per txn.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ttl</p></td>
+<td><p>–</p></td>
+<td><p>TTL in days, when set will cause the expired documents to be deleted automatically, if not set documents will never be automatically deleted. TTL is accepted both in the earlier form of integer only e.g. a1.sinks.k1.ttl = 5 and also with a qualifier ms (millisecond), s (second), m (minute), h (hour), d (day) and w (week). Example a1.sinks.k1.ttl = 5d will set TTL to 5 days. Follow <a class="reference external" href="http://www.elasticsearch.org/guide/reference/mapping/ttl-field/">http://www.elasticsearch.org/guide/reference/mapping/ttl-field/</a> for more information.</p></td>
+</tr>
+<tr class="row-even"><td><p>serializer</p></td>
+<td><p>org.apache.flume.sink.elasticsearch.ElasticSearchLogStashEventSerializer</p></td>
+<td><p>The ElasticSearchIndexRequestBuilderFactory or ElasticSearchEventSerializer to use. Implementations of either class are accepted but ElasticSearchIndexRequestBuilderFactory is preferred.</p></td>
+</tr>
+<tr class="row-odd"><td><p>serializer.*</p></td>
+<td><p>–</p></td>
+<td><p>Properties to be passed to the serializer.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">a1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+<span class="na">a1.sinks</span> <span class="o">=</span> <span class="s">k1</span>
+<span class="na">a1.sinks.k1.type</span> <span class="o">=</span> <span class="s">elasticsearch</span>
+<span class="na">a1.sinks.k1.hostNames</span> <span class="o">=</span> <span class="s">127.0.0.1:9200,127.0.0.2:9300</span>
+<span class="na">a1.sinks.k1.indexName</span> <span class="o">=</span> <span class="s">foo_index</span>
+<span class="na">a1.sinks.k1.indexType</span> <span class="o">=</span> <span class="s">bar_type</span>
+<span class="na">a1.sinks.k1.clusterName</span> <span class="o">=</span> <span class="s">foobar_cluster</span>
+<span class="na">a1.sinks.k1.batchSize</span> <span class="o">=</span> <span class="s">500</span>
+<span class="na">a1.sinks.k1.ttl</span> <span class="o">=</span> <span class="s">5d</span>
+<span class="na">a1.sinks.k1.serializer</span> <span class="o">=</span> <span class="s">org.apache.flume.sink.elasticsearch.ElasticSearchDynamicSerializer</span>
+<span class="na">a1.sinks.k1.channel</span> <span class="o">=</span> <span class="s">c1</span>
+</pre></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="kafka-sync">
+<h1>Kafka Sync<a class="headerlink" href="#kafka-sync" title="Permalink to this headline">¶</a></h1>
+<p>This is a Flume Sink implementation that can publish data to a Kafka topic. One of the objective is to integrate Flume with Kafka so that pull based processing systems can process the data coming through various Flume sources.</p>
+<p>This currently supports Kafka server releases 0.10.1.0 or higher. Testing was done up to 2.0.1 that was the highest avilable version at the time of the release.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>–</p></td>
+<td><p>Must be set to org.apache.flume.sink.kafka.KafkaSink</p></td>
+</tr>
+<tr class="row-odd"><td><p>kafka.bootstrap.servers</p></td>
+<td><p>–</p></td>
+<td><p>List of brokers Kafka-Sink will connect to, to get the list of topic partitions This can be a partial list of brokers, but we recommend at least two for HA. The format is comma separated list of hostname:port</p></td>
+</tr>
+<tr class="row-even"><td><p>kafka.topic</p></td>
+<td><p>default-flume-topic</p></td>
+<td><p>The topic in Kafka to which the messages will be published. If this parameter is configured, messages will be published to this topic. If the event header contains a “topic” field, the event will be published to that topic overriding the topic configured here. Arbitrary header substitution is supported, eg. %{header} is replaced with value of event header named “header”. (If using the substitution, it is recommended to set “auto.create.topics.enable” property of Kafka broker to true.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>flumeBatchSize</p></td>
+<td><p>100</p></td>
+<td><p>How many messages to process in one batch. Larger batches improve throughput while adding latency.</p></td>
+</tr>
+<tr class="row-even"><td><p>kafka.producer.acks</p></td>
+<td><p>1</p></td>
+<td><p>How many replicas must acknowledge a message before its considered successfully written. Accepted values are 0 (Never wait for acknowledgement), 1 (wait for leader only), -1 (wait for all replicas) Set this to -1 to avoid data loss in some cases of leader failure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>useFlumeEventFormat</p></td>
+<td><p>false</p></td>
+<td><p>By default events are put as bytes onto the Kafka topic directly from the event body. Set to true to store events as the Flume Avro binary format. Used in conjunction with the same property on the KafkaSource or with the parseAsFlumeEvent property on the Kafka Channel this will preserve any Flume headers for the producing side.</p></td>
+</tr>
+<tr class="row-even"><td><p>defaultPartitionId</p></td>
+<td><p>–</p></td>
+<td><p>Specifies a Kafka partition ID (integer) for all events in this channel to be sent to, unless overriden by partitionIdHeader. By default, if this property is not set, events will be distributed by the Kafka Producer’s partitioner - including by key if specified (or by a partitioner specified by kafka.partitioner.class).</p></td>
+</tr>
+<tr class="row-odd"><td><p>partitionIdHeader</p></td>
+<td><p>–</p></td>
+<td><p>When set, the sink will take the value of the field named using the value of this property from the event header and send the message to the specified partition of the topic. If the value represents an invalid partition, an EventDeliveryException will be thrown. If the header value is present then this setting overrides defaultPartitionId.</p></td>
+</tr>
+<tr class="row-even"><td><p>allowTopicOverride</p></td>
+<td><p>true</p></td>
+<td><p>When set, the sink will allow a message to be produced into a topic specified by the topicHeader property (if provided).</p></td>
+</tr>
+<tr class="row-odd"><td><p>topicHeader</p></td>
+<td><p>topic</p></td>
+<td><p>When set in conjunction with allowTopicOverride will produce a message into the value of the header named using the value of this property. Care should be taken when using in conjunction with the Kafka Source topicHeader property to avoid creating a loopback.</p></td>
+</tr>
+<tr class="row-even"><td><p>kafka.producer.security.protocol</p></td>
+<td><p>PLAINTEXT</p></td>
+<td><p>Set to SASL_PLAINTEXT, SASL_SSL or SSL if writing to Kafka using some level of security. See below for additional info on secure setup.</p></td>
+</tr>
+<tr class="row-odd"><td><p>more producer security props</p></td>
+<td><p></p></td>
+<td><p>If using SASL_PLAINTEXT, SASL_SSL or SSL refer to Kafka security for additional properties that need to be set on producer.</p></td>
+</tr>
+<tr class="row-even"><td><p>Other Kafka Producer Properties</p></td>
+<td><p>–</p></td>
+<td><p>These properties are used to configure the Kafka Producer. Any producer property supported by Kafka can be used. The only requirement is to prepend the property name with the prefix kafka.producer. For example: <a class="reference external" href="http://kafka.producer.linger.ms">kafka.producer.linger.ms</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="other-sinks">
+<h1>Other Sinks<a class="headerlink" href="#other-sinks" title="Permalink to this headline">¶</a></h1>
+<p>Others</p>
+<ul class="simple">
+<li><p>Avro</p></li>
+<li><p>Thrift</p></li>
+<li><p>IRC</p></li>
+<li><p>Null</p></li>
+<li><p>Hbase</p></li>
+<li><p>Sorl</p></li>
+<li><p>Kite</p></li>
+<li><p>Http</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="demo">
+<h1>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="demo-apache">
+<h1>Demo Apache<a class="headerlink" href="#demo-apache" title="Permalink to this headline">¶</a></h1>
+<p>compose</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="demo-twitter">
+<h1>Demo Twitter<a class="headerlink" href="#demo-twitter" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://flumeTwitter.sh">flumeTwitter.sh</a></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="is-flume-a-good-for-your-problem">
+<h1>Is Flume a good for your problem ?<a class="headerlink" href="#is-flume-a-good-for-your-problem" title="Permalink to this headline">¶</a></h1>
+<p>Flume is designed to transport and ingest regularly-generated event data over relatively stable, potentially complex topologies. The notion of “event data” is very broadly defined. To Flume, an event is just a generic blob of bytes.</p>
+<p>There are some limitations on how large an event can be - for instance, it cannot be larger than what you can store in memory or on disk on a single machine - but in practice, flume events can be everything from textual log entries to image files.</p>
+<p>The key property of an event is that they are generated in a continuous, streaming fashion. If your data is not regularly generated (i.e. you are trying to do a single bulk load of data into a Hadoop cluster) then Flume will still work, but it is probably overkill for your situation.</p>
+<p>Flume likes relatively stable topologies. Your topologies do not need to be immutable, because Flume can deal with changes in topology without losing data and can also tolerate periodic reconfiguration due to fail-over or provisioning. It probably won’t work well if you plant to change topologies every day, because reconfiguration takes some thought and overhead.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Data%20Ingestion.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Ingestion</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Logstash.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Logstash</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
